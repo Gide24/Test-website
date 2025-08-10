@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cry Function</title>
+  <!-- note the path: this file is in /en/page/, so css is two levels up -->
+  <link rel="stylesheet" href="../../css/style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header id="nav-placeholder"></header>
+  <script>
+    // note the path: nav.html is one level up from /en/page/
+    fetch("../nav.html")
+      .then(r => r.text())
+      .then(html => { document.getElementById("nav-placeholder").innerHTML = html; });
+  </script>
+
+  <!-- Content -->
+  <main class="page page--left-sidebar">
+    <aside class="sidebar">
+      <ul>
+        <li><a href="cry-function.html" aria-current="page">Cry Function</a></li>
+        <li><a href="cuddly-toy.html">Cuddly Toy</a></li>
+      </ul>
+    </aside>
+
+    <article>
+      <h1>Cry Function</h1>
+      <p>Content coming soon…</p>
+    </article>
+  </main>
+</body>
+</html>
+

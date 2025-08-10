@@ -1,77 +1,133 @@
-/* Reset some defaults and set a clean baseline */
+/* ===========================
+   Reset & Base
+   =========================== */
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
+
+:root {
+  --bg: #fafafa;
+  --panel: #f4f5f7;
+  --muted: #666666;
+}
+
 body {
   font-family: system-ui, Arial, sans-serif;
   line-height: 1.6;
   color: #222;
-  background: #fafafa;
+  background: var(--bg);
+
+  /* Layout shell */
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* header, content, footer */
+  min-height: 100svh;
 }
 
-
-/* Style the navigation menu */
+/* ===========================
+   Navigation
+   =========================== */
 nav {
-  background-color: #2a13d4;
-  padding: 10px;
-  text-align: center; /* backup centering for non-flex elements */
+  background-color: #fff;
+  /* top/bottom, then left/right (more room on the right) */
+  padding-block: 10px;
+  padding-inline: 16px 90px; /* left, right */
+  text-align: center; /* fallback if flex fails */
 }
 
 nav ul {
-  list-style: none; /* remove bullet points */
+  list-style: none;
   margin: 0;
   padding: 0;
-  display: flex; /* place items in a row */
-  gap: 15px; /* space between links */
-  justify-content: center; /* center the links */
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end; /* push links to the right */
 }
 
 nav a {
   text-decoration: none;
-  color:white;
-  font-weight: bold; /* or 600 */
-  font-size: 18px;       /* bigger menu text */
-  transition: color 0.3s ease; /* smooth 0.3s color change */
+  color: #000;
+  font-weight: 600; /* slightly lighter than bold */
+  font-size: inherit;
+  font-family: "Times New Roman", Times, serif;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  text-decoration: none;       /* no underline */
-  color: yellow;              /* gold on hover */
+  text-decoration: none;
+  color: red;
 }
 
-/* Layout shell */
-body {
-  display: grid;
-  grid-template-rows: auto 1fr auto; /* header, content, footer */
-  min-height: 100svh;                 /* full viewport height */
-}
+/* ===========================
+   Typography
+   =========================== */
+h1 { font-size: 1.2rem; } /* adjust as you like */
 
-/* Content area: main + sidebar */
+/* ===========================
+   Page Layout (content + optional sidebar)
+   =========================== */
 .page {
   display: grid;
-  grid-template-columns: 1fr 320px;   /* main | sidebar width */
+  grid-template-columns: 220px 1fr;   /* sidebar | main */
   gap: 24px;
+
+  /* LEFT align the container instead of centering it */
   max-width: 1100px;
-  margin: 24px auto;
-  padding: 0 16px;
+  margin: 24px 16px 24px 0;   /* top/right/bottom/left — no big left gap */
+
+  /* remove left padding so the sidebar sits flush with the page edge */
+  padding: 0 16px 0 0;        /* keep only right padding as gutter */
 }
 
-main {
-  background: var(--bg);
+
+/* Modifier: put the sidebar on the LEFT */
+.page--left-sidebar {
+  grid-template-columns: 220px 1fr; /* sidebar | main */
 }
 
-aside {
-  background: var(--panel);
-  border: 1px solid #eddee8;
-  border-radius: 12px;
-  padding: 16px;
-  /* Center the sidebar’s inner content */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* horizontal center */
-  gap: 12px;
+/* Main/content area hook (kept simple) */
+main { background: var(--bg); }
+
+/* ===========================
+   Sidebar Look (use with <aside class="sidebar">)
+   =========================== */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(to bottom, #e0e2ec, #cfd3e1);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: inset -1px 0 0 #bbb;
 }
 
-/* Footer */
+.sidebar ul { list-style: none; padding: 0; margin: 0; }
+.sidebar li + li { margin-top: 0.5rem; }
+
+.sidebar a {
+  display: block;
+  text-decoration: none;
+  color: #2a2a3c;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.sidebar a:hover { background-color: #007acc; color: #fff; }
+.sidebar a:visited { color: #2a2a3c; } /* avoid purple visited links */
+
+/* Active link (current page) */
+.sidebar a[aria-current="page"] {
+  background-color: #e6ecff;
+  color: #111;
+}
+
+/* Keep the highlight even on hover */
+.sidebar a[aria-current="page"]:hover {
+  background-color: #e6ecff;
+  color: #111;
+}
+
+
+/* ===========================
+   Footer
+   =========================== */
 footer {
   background: var(--panel);
   border-top: 1px solid #e5e7eb;
@@ -80,4 +136,33 @@ footer {
   text-align: center;
   font-size: 0.9rem;
 }
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 900px) {
+  /* Nav wraps & centers on small screens */
+  nav {
+    padding-right: 48px; /* keep a little room on the right */
+  }
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  /* Stack page columns; sidebar below content */
+  .page,
+  .page--left-sidebar {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    width: auto;
+    order: 2; /* appear below main content */
+  }
+}
+
 

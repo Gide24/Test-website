@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Childhood</title>
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- Page-specific styling (you can move this to style.css later) -->
+  
+</head>
+<body>
+  <!-- Navigation -->
+  <header id="nav-placeholder"></header>
+  <script>
+    fetch("nav.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+      });
+  </script>
+
+  <!-- Content -->
+  <main class="page page--childhood">
+    <aside class="sidebar">
+        <ul>
+        <li><a href="page/cry-function.html">Cry Function</a></li>
+        <li><a href="page/cuddly-toy.html">Cuddly Toy</a></li>
+      </ul>
+    </aside>
+
+    <article>
+      <h1>Childhood</h1>
+      <p>Content coming soon…</p>
+    </article>
+  </main>
+</body>
+</html>
+
+
+
