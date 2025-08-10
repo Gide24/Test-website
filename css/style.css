@@ -1,0 +1,83 @@
+/* Reset some defaults and set a clean baseline */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background: #fafafa;
+}
+
+
+/* Style the navigation menu */
+nav {
+  background-color: #2a13d4;
+  padding: 10px;
+  text-align: center; /* backup centering for non-flex elements */
+}
+
+nav ul {
+  list-style: none; /* remove bullet points */
+  margin: 0;
+  padding: 0;
+  display: flex; /* place items in a row */
+  gap: 15px; /* space between links */
+  justify-content: center; /* center the links */
+}
+
+nav a {
+  text-decoration: none;
+  color:white;
+  font-weight: bold; /* or 600 */
+  font-size: 18px;       /* bigger menu text */
+  transition: color 0.3s ease; /* smooth 0.3s color change */
+}
+
+nav a:hover {
+  text-decoration: none;       /* no underline */
+  color: yellow;              /* gold on hover */
+}
+
+/* Layout shell */
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* header, content, footer */
+  min-height: 100svh;                 /* full viewport height */
+}
+
+/* Content area: main + sidebar */
+.page {
+  display: grid;
+  grid-template-columns: 1fr 320px;   /* main | sidebar width */
+  gap: 24px;
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+main {
+  background: var(--bg);
+}
+
+aside {
+  background: var(--panel);
+  border: 1px solid #eddee8;
+  border-radius: 12px;
+  padding: 16px;
+  /* Center the sidebar’s inner content */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* horizontal center */
+  gap: 12px;
+}
+
+/* Footer */
+footer {
+  background: var(--panel);
+  border-top: 1px solid #e5e7eb;
+  padding: 12px 16px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
