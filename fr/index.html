@@ -1,53 +1,75 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Site de test — Un nouveau modèle du développement humain</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <title>Site de test — Un nouveau modèle de développement humain</title>
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
+
     <!-- Navigation -->
     <header id="nav-placeholder"></header>
 
-    <main>
-      <h1>Un Nouveau Modèle du Développement Humain</h1>
-      <p>
-      Ce site est avant tout un <strong>lieu d’information</strong>, une
-      <strong>source de réflexion</strong> et une <strong>connexion</strong>
-      entre chacun de nous et le monde de la recherche.
-    </p>
-    <p>
-      Depuis des décennies, des découvertes extraordinaires ont été faites —
-      des données et des travaux scientifiques qui auraient pu transformer
-      notre vision du monde et de nous‑mêmes. Pourtant, ces connaissances n’ont
-      pas eu l’impact qu’elles méritaient. Trop souvent, elles ont été
-      ignorées, reléguées dans l’ombre, ou réservées à des cercles restreints.
-    </p>
-    <p>
-      C’est pourquoi j’ai voulu créer ici un <strong>espace de transmission</strong> :
-      un lieu où je partage les connaissances qui soutiennent ma vision du
-      développement humain ; un lieu de <strong>réflexion collective</strong>
-      et d’<strong>exploration intérieure</strong> ; un véritable
-      <strong>cœur de données</strong> qui peut nourrir de nouvelles recherches
-      et inspirer d’autres voies d’étude.
-    </p>
-    <p>
-      Je veux que cet espace soit <strong>accessible à tous</strong>, au‑delà
-      des barrières académiques ou techniques. Ici, j’expose
-      <strong>ma vision du développement humain</strong>… et j’invite chacun à
-      y puiser, questionner, et contribuer à façonner une compréhension plus
-      large de qui nous sommes et de ce que nous pouvons devenir.
-    </p>
-    </main>
+    <!-- Bannière -->
+    <div id="banner-placeholder"></div>
 
-    <!-- Charger fr/nav.html dans l’en-tête -->
     <script>
+      // Charger la navigation FR (fichier situé dans /fr/nav.html)
       fetch("nav.html")
         .then(r => r.text())
         .then(html => {
           document.getElementById("nav-placeholder").innerHTML = html;
         });
+
+      // Charger la bannière FR
+      fetch("/fr/banner.html")
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById("banner-placeholder").innerHTML = html;
+        });
     </script>
+
+    <main class="page page--left-sidebar page--home-grid">
+      <!-- fin liseré pour mimer la position de la sidebar -->
+      <aside class="home-gutter" aria-hidden="true"></aside>
+
+      <article class="content">
+        <h1>Un nouveau modèle de développement humain</h1>
+
+        <p>
+          Ce site est avant tout un <strong>lieu d’information</strong>, une
+          <strong>source de réflexion</strong> et un <strong>lien</strong>
+          entre chacun de nous et le monde de la recherche.
+        </p>
+
+        <p>
+          Depuis des décennies, des découvertes remarquables ont été faites —
+          des données et des travaux scientifiques qui auraient pu transformer
+          notre vision du monde et de nous‑mêmes. Pourtant, ces connaissances
+          n’ont pas eu l’impact qu’elles méritent : trop souvent elles ont été
+          ignorées, reléguées dans l’ombre ou confinées à des cercles restreints.
+        </p>
+
+        <p>
+          C’est pourquoi j’ai créé cet <strong>espace de transmission</strong> :
+          un lieu pour partager les savoirs qui fondent ma vision du développement
+          humain ; un espace de <strong>réflexion collective</strong> et
+          d’<strong>exploration intérieure</strong> ; un véritable
+          <strong>hub de données</strong> capable de nourrir de nouvelles
+          recherches et d’inspirer d’autres voies d’enquête.
+        </p>
+
+        <p>
+          Je souhaite que cet espace soit <strong>accessible à tous</strong>,
+          au‑delà des barrières académiques ou techniques. J’y présente
+          <strong>ma vision du développement humain</strong>… et j’invite
+          chaque lecteur à y puiser, à la questionner et à contribuer à une
+          compréhension plus large de qui nous sommes et de ce que nous pouvons
+          devenir.
+        </p>
+      </article>
+    </main>
+
   </body>
 </html>

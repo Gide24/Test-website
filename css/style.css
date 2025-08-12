@@ -52,84 +52,67 @@ nav a {
 }
 
 nav a:hover {
-  text-decoration: none;
-  color: red;
+    color: red;
 }
 
-/* ===========================
-   Typography
-   =========================== */
-h1 { font-size: 1.2rem; } /* adjust as you like */
 
 /* ===========================
-   Page Layout (content + optional sidebar)
+   Page Layout
    =========================== */
 .page {
-  display: grid;
-  grid-template-columns: 220px 1fr;   /* sidebar | main */
-  gap: 24px;
-
-  /* LEFT align the container instead of centering it */
+  /* Base page: single column, centered */
+.page {
   max-width: 1100px;
-  margin: 24px 16px 24px 0;   /* top/right/bottom/left — no big left gap */
-
-  /* remove left padding so the sidebar sits flush with the page edge */
-  padding: 0 16px 0 0;        /* keep only right padding as gutter */
+  margin: 24px auto;
+  padding: 0 16px;
+}
 }
 
-
-/* Modifier: put the sidebar on the LEFT */
-.page--left-sidebar {
-  grid-template-columns: 220px 1fr; /* sidebar | main */
+/* Two‑column layout: only when a sidebar exists */
+.page.page--left-sidebar {
+  display: grid;
+  grid-template-columns: 280px 1fr;   /* sidebar | content */
+  gap: 2rem;
+  align-items: start;
 }
 
-/* Main/content area hook (kept simple) */
-main { background: var(--bg); }
+/* Optional: reading width for text blocks */
+.page .content { max-width: 75ch; }
 
-/* Remove top margin from first heading in Childhood page */
-main.page.page--childhood > article > h1:first-child {
-  margin-top: 0;
-}
+/* Home page sits in a single column (no grid) */
+.page.page--home { display: block; }
 
 
-/* ---- Sidebar base (works for both styles) ---- */
-:root {
-  --accent: #341de1;      /* accent line/underline (tweak if you like) */
-  --ink: #111827;         /* text */
-  --muted: #806b6c;       /* subtle text */
-  --line: #e5e7eb;        /* dividers */
-  --surface: #ffffff;     /* card background */
-}
+/* Make the first heading on home sit nicely under the banner */
+.page--home-grid .content > h1:first-child { margin-top: 0.5rem; }
 
+/* ===========================
+   Sidebar
+   =========================== */
 .sidebar {
   width: 280px;
   max-width: 100%;
-  position: sticky;  /* stays in view while scrolling */
+  position: sticky;
   top: 1rem;
   align-self: flex-start;
-  margin-left: 20px;   /* try 12–24px to taste */
+  margin-left: 20px;             /* nudge inward from page edge */
   border-radius: 12px;
   background: var(--surface);
   box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 6px 24px rgba(0,0,0,.06);
 }
 
-/* Title */
+/* Title (use if you add <h2> in the sidebar) */
 .sidebar > h2 {
   font-size: 1.125rem;
-  line-height: 1.2;
   font-weight: 700;
+  line-height: 1.2;
   margin: 0;
-  padding: 1rem 1.25rem .5rem 1.25rem;
+  padding: 1rem 1.25rem .5rem;
   color: var(--ink);
 }
 
-/* List */
-.sidebar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
+/* Links */
+.sidebar ul { list-style: none; margin: 0; padding: 0; }
 .sidebar a {
   display: block;
   text-decoration: none;
@@ -139,53 +122,36 @@ main.page.page--childhood > article > h1:first-child {
   position: relative;
 }
 
-/* Hover */
+/* Hover: color only (no bg shadow) */
 .sidebar a:hover {
   background: none;
-  box-shadow: none;     /* ensure no shadow */
+  box-shadow: none;
   opacity: 1;
-  color: var(--accent);  /* text changes to accent color */
-  }
-
-/* Active link (uses aria-current="page") */
-.sidebar a[aria-current="page"] {
   color: var(--accent);
 }
 
-/* ---- Style A: card with dividers + active underline ---- */
-.sidebar--card li + li {
-  border-top: 1px solid var(--line);
-}
+/* Active link */
+.sidebar a[aria-current="page"] { color: var(--accent); }
+
+/* Style A: card with dividers + underline for active */
+.sidebar--card li + li { border-top: 1px solid var(--line); }
 .sidebar--card a[aria-current="page"]::after {
   content: "";
   position: absolute;
-  left: 1.25rem;
-  right: 1.25rem;
-  bottom: 0;
-  height: 2px;
+  left: 1.25rem; right: 1.25rem; bottom: 0;
+  height: 2px; border-radius: 2px;
   background: var(--accent);
-  border-radius: 2px;
 }
 
-/* Sidebar with vertical blue bar */
-
+/* Style: vertical blue bar INSIDE the card */
 .sidebar--bluebar {
-  border-left: none; /* remove current */
-  box-shadow: inset 2px 0 0 var(--accent); /* inset shadow acts like a border */
-  padding-left: none;
+  border-left: none;                          /* no outer border */
+  box-shadow: inset 2px 0 0 var(--accent);    /* inner blue bar */
 }
 
-.sidebar--bluebar a {
-  color: var(--ink);
-  font-weight: 600;
-  display: block;
-  padding-left: 0.7em;
-}
-
-.sidebar--bluebar a[aria-current="page"] {
-  background: none;
-  color: var(--accent);
-  box-shadow: none;
+/* Hover effect for links in the bluebar sidebar */
+.sidebar--bluebar a:hover {
+  color: red; /*any color you want */
 }
 
 
@@ -202,55 +168,7 @@ main.page.page--childhood > article > h1:first-child {
   border-bottom-right-radius: 8px;
 }
 
-/* ---- Responsive tweak (sidebar stacks under main on small screens) ---- */
-@media (max-width: 800px) {
-  .sidebar {
-    width: 100%;
-    position: static;
-    margin-bottom: 1rem;
-  }
-}
 
-
-/* ===========================
-   Footer
-   =========================== */
-footer {
-  background: var(--panel);
-  border-top: 1px solid #e5e7eb;
-  padding: 12px 16px;
-  color: var(--muted);
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-/* ===========================
-   Responsive
-   =========================== */
-@media (max-width: 900px) {
-  /* Nav wraps & centers on small screens */
-  nav {
-    padding-right: 48px; /* keep a little room on the right */
-  }
-  nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-  nav a {
-    font-size: 0.9rem;
-  }
-
-  /* Stack page columns; sidebar below content */
-  .page,
-  .page--left-sidebar {
-    grid-template-columns: 1fr;
-  }
-  .sidebar {
-    width: auto;
-    order: 2; /* appear below main content */
-  }
-}
 
 /* ===========================
    Banner
@@ -271,7 +189,6 @@ footer {
 #banner-placeholder { 
      margin: 0;
      padding: 0; 
-     display: block;
     }
 
     #banner-placeholder::after {
@@ -279,3 +196,51 @@ footer {
     display: block;
     height: 1rem;   /* small elegant gap; tweak to taste (e.g., 0.75rem / 1.25rem) */
     }
+
+ /* Two‑column layout: sidebar left, content right */
+    .page.page--left-sidebar {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2rem;
+      align-items: start;  /* prevents sidebar dropping */
+    }
+
+    /* Trim default top margin of first heading in main */
+    main > h1:first-child { margin-top: 0; }
+
+/* ===========================
+   Footer
+   =========================== */
+footer {
+  background: var(--panel);
+  border-top: 1px solid #e5e7eb;
+  padding: 12px 16px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+/* ---- Responsive tweak (sidebar stacks under main on small screens) ---- */
+@media (max-width: 800px) {
+  .sidebar {
+    width: 100%;
+    position: static;
+    margin-bottom: 1rem;
+  }
+
+@media (max-width: 900px) {
+  nav { padding-right: 48px; }
+  nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; }
+  nav a { font-size: .9rem; }
+}
+
+@media (max-width: 800px) {
+  .page.page--left-sidebar { display: block; }  /* stack sidebar under content */
+  .sidebar { width: 100%; position: static; margin: 0 0 1rem 0; }
+}
+}
+
+

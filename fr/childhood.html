@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enfance</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header id="nav-placeholder"></header>
+
+  <!-- Bannière -->
+  <div id="banner-placeholder"></div>
+
+  <script>
+    // Nav FR
+    fetch("nav.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+      });
+
+    // Bannière FR
+    fetch("/fr/banner.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("banner-placeholder").innerHTML = html;
+        document.body.classList.add("has-banner"); // même comportement que la page EN
+      });
+  </script>
+
+  <!-- Contenu -->
+  <main class="page page--left-sidebar page--childhood">
+
+    <aside class="sidebar sidebar--bluebar" aria-label="Sous-pages Enfance">
+      <ul>
+        <!-- Gardé volontairement identique à la version EN pour éviter 404.
+             On pourra renommer vers /fr/page/fonction-pleurs.html et /fr/page/doudou.html plus tard. -->
+        <li><a href="/fr/page/cry-function.html" aria-current="page">Fonction des pleurs</a></li>
+        <li><a href="/fr/page/cuddly-toy.html">Doudou / Objet transitionnel</a></li>
+      </ul>
+    </aside>
+
+    <article>
+      <h1>Réduction du potentiel neuronal par certaines pratiques sociales</h1>
+
+      <p>
+        Ce chapitre aborde des comportements sociaux majeurs qui conduisent le cerveau humain
+        à réduire son potentiel neuronal pour s’adapter à l’environnement.
+      </p>
+
+      <p>
+        Parmi eux, la séparation très précoce de l’enfant d’avec ses parents — chambre
+        séparée, couffin ou nacelle — limite la proximité avec l’adulte. Le bébé ne peut
+        alors pas exploiter pleinement le langage corporel comme moyen de communication.
+        Très vite, pleurer ou crier devient le principal signal d’un besoin.
+      </p>
+
+      <p>
+        Comme les adultes ne perçoivent pas les signaux non verbaux du nourrisson, ils
+        interprètent les pleurs comme la forme d’expression centrale.
+        Cette incapacité sociale à identifier les demandes comportementales marque la
+        première étape d’un processus adaptatif qui réduit la motricité et l’élasticité
+        cérébrale : le potentiel de communication du bébé se trouve limité aux pleurs.
+      </p>
+
+      <p>
+        Une autre pratique répandue, l’usage de la tétine, restreint aussi la communication.
+        La bouche joue un rôle fondamental : chez l’adulte, un simple rictus peut transmettre
+        une grande richesse d’informations. Or la tétine masque une large partie du visage,
+        empêchant l’échange subtil d’expressions.
+      </p>
+
+      <p>
+        De même, l’introduction précoce d’un objet transitionnel — « doudou », « objet de
+        sécurité » — s’inscrit dans une stratégie sociale de séparation mère-enfant, pensée
+        pour prévenir les conséquences sévères d’une séparation prolongée telles que décrites par
+        René Spitz (dépression anaclitique, hospitalisme). Loin de favoriser le développement,
+        l’objet de réconfort peut réduire le potentiel cérébral : il limite l’interaction avec
+        le parent et génére de l’anxiété.
+      </p>
+
+      <p>
+        Pris ensemble, ces usages sociaux tendent à réduire l’activité cérébrale en isolant
+        certaines branches neuronales — un phénomène que je conceptualise comme des
+        <strong>Constellations neuronales sclérosées (CNS)</strong>. Plus tard ...
+      </p>
+    </article>
+
+  </main>
+</body>
+</html>
