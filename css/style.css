@@ -86,42 +86,129 @@ h1 { font-size: 1.2rem; } /* adjust as you like */
 /* Main/content area hook (kept simple) */
 main { background: var(--bg); }
 
-/* ===========================
-   Sidebar Look (use with <aside class="sidebar">)
-   =========================== */
-.sidebar {
-  width: 220px;
-  background: linear-gradient(to bottom, #e0e2ec, #cfd3e1);
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: inset -1px 0 0 #bbb;
+/* Remove top margin from first heading in Childhood page */
+main.page.page--childhood > article > h1:first-child {
+  margin-top: 0;
 }
 
-.sidebar ul { list-style: none; padding: 0; margin: 0; }
-.sidebar li + li { margin-top: 0.5rem; }
+
+/* ---- Sidebar base (works for both styles) ---- */
+:root {
+  --accent: #341de1;      /* accent line/underline (tweak if you like) */
+  --ink: #111827;         /* text */
+  --muted: #806b6c;       /* subtle text */
+  --line: #e5e7eb;        /* dividers */
+  --surface: #ffffff;     /* card background */
+}
+
+.sidebar {
+  width: 280px;
+  max-width: 100%;
+  position: sticky;  /* stays in view while scrolling */
+  top: 1rem;
+  align-self: flex-start;
+  margin-left: 20px;   /* try 12–24px to taste */
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 6px 24px rgba(0,0,0,.06);
+}
+
+/* Title */
+.sidebar > h2 {
+  font-size: 1.125rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0;
+  padding: 1rem 1.25rem .5rem 1.25rem;
+  color: var(--ink);
+}
+
+/* List */
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
 .sidebar a {
   display: block;
   text-decoration: none;
-  color: #2a2a3c;
-  font-weight: bold;
-  padding: 0.5rem;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s;
+  color: var(--ink);
+  font-weight: 600;
+  padding: 1rem 1.25rem;
+  position: relative;
 }
-.sidebar a:hover { background-color: #007acc; color: #fff; }
-.sidebar a:visited { color: #2a2a3c; } /* avoid purple visited links */
 
-/* Active link (current page) */
+/* Hover */
+.sidebar a:hover {
+  background: none;
+  box-shadow: none;     /* ensure no shadow */
+  opacity: 1;
+  color: var(--accent);  /* text changes to accent color */
+  }
+
+/* Active link (uses aria-current="page") */
 .sidebar a[aria-current="page"] {
-  background-color: #e6ecff;
-  color: #111;
+  color: var(--accent);
 }
 
-/* Keep the highlight even on hover */
-.sidebar a[aria-current="page"]:hover {
-  background-color: #e6ecff;
-  color: #111;
+/* ---- Style A: card with dividers + active underline ---- */
+.sidebar--card li + li {
+  border-top: 1px solid var(--line);
+}
+.sidebar--card a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* Sidebar with vertical blue bar */
+
+.sidebar--bluebar {
+  border-left: none; /* remove current */
+  box-shadow: inset 2px 0 0 var(--accent); /* inset shadow acts like a border */
+  padding-left: none;
+}
+
+.sidebar--bluebar a {
+  color: var(--ink);
+  font-weight: 600;
+  display: block;
+  padding-left: 0.7em;
+}
+
+.sidebar--bluebar a[aria-current="page"] {
+  background: none;
+  color: var(--accent);
+  box-shadow: none;
+}
+
+
+/* ---- Style B: minimal with a vertical accent bar ---- */
+.sidebar--bar {
+  border-left: 4px solid var(--accent);
+}
+.sidebar--bar a {
+  padding-left: 1rem;         /* tighter left padding with the bar */
+}
+.sidebar--bar a[aria-current="page"] {
+  background: rgba(225,17,72,0.06); /* subtle highlight */
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* ---- Responsive tweak (sidebar stacks under main on small screens) ---- */
+@media (max-width: 800px) {
+  .sidebar {
+    width: 100%;
+    position: static;
+    margin-bottom: 1rem;
+  }
 }
 
 
@@ -165,4 +252,30 @@ footer {
   }
 }
 
+/* ===========================
+   Banner
+   =========================== */
+.banner {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
+/* Prevent margin-collapsing inside the banner container */
+#banner-placeholder { 
+     margin: 0;
+     padding: 0; 
+     display: block;
+    }
+
+    #banner-placeholder::after {
+    content: "";
+    display: block;
+    height: 1rem;   /* small elegant gap; tweak to taste (e.g., 0.75rem / 1.25rem) */
+    }

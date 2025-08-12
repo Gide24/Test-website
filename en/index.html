@@ -11,6 +11,9 @@
         <!-- Navigation Menu -->
         <header id="nav-placeholder"></header>
 
+        <!-- Banner -->
+        <div id="banner-placeholder"></div>
+
         <main>
             <h1>A New Model of Human Developemnt</h1>
                 <p>
@@ -43,12 +46,16 @@
          <!-- Load /en/nav.html into the header -->
 
          <script>
-        fetch("nav.html")
+            fetch("nav.html")
             .then(r => r.text())
             .then(html => {
-          document.getElementById("nav-placeholder").innerHTML = html;
-        });
-    </script>
+            document.getElementById("nav-placeholder").innerHTML = html;
+            });
+         // Load EN banner
+            fetch("/en/banner.html")
+            .then(r => r.text())
+            .then(html => { document.getElementById("banner-placeholder").innerHTML = html; });
+            </script>
 
     </body>
 </html>

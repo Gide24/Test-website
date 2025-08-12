@@ -12,30 +12,44 @@
 <body>
   <!-- Navigation -->
   <header id="nav-placeholder"></header>
+
+  <!-- Banner -->
+  <div id="banner-placeholder"></div>
+
   <script>
     fetch("nav.html")
       .then(r => r.text())
       .then(html => {
         document.getElementById("nav-placeholder").innerHTML = html;
-      });
-  </script>
+    });
+
+     // Load EN banner
+    fetch("/en/banner.html")
+        .then(r => r.text())
+        .then(html => {
+        document.getElementById("banner-placeholder").innerHTML = html;
+        document.body.classList.add("has-banner");   // ← flag for CSS
+    });
+
+    </script>
+
 
   <!-- Content -->
-  <main class="page page--childhood">
-    <aside class="sidebar">
-        <ul>
-        <li><a href="page/cry-function.html">Cry Function</a></li>
-        <li><a href="page/cuddly-toy.html">Cuddly Toy</a></li>
-      </ul>
-    </aside>
+   <main class="page page--childhood">
 
-    <article>
-      <h1>Childhood</h1>
-      <p>Content coming soon…</p>
-    </article>
-  </main>
+        <aside class="sidebar sidebar--bluebar" aria-label="Childhood subpages">
+            <ul>
+                <li><a href="/en/page/cry-function.html" aria-current="page">Cry Function</a></li>
+                <li><a href="/en/page/cuddly-toy.html">Cuddly Toy</a></li>
+            </ul>
+        </aside>
+
+        <article>
+            <h1>Childhood</h1>
+            <p>Content coming soon…</p>
+        </article>
+    </main>
 </body>
 </html>
-
 
 
