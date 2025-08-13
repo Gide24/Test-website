@@ -1,36 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cry Function</title>
-  <!-- note the path: this file is in /en/page/, so css is two levels up -->
-  <link rel="stylesheet" href="../../css/style.css" />
+  <title>Cry Function — Childhood</title>
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
   <!-- Navigation -->
   <header id="nav-placeholder"></header>
+
+  <!-- Banner -->
+  <div id="banner-placeholder"></div>
+
   <script>
-    // note the path: nav.html is one level up from /en/page/
+    // From /en/page/, nav.html is one level up
     fetch("../nav.html")
       .then(r => r.text())
-      .then(html => { document.getElementById("nav-placeholder").innerHTML = html; });
+      .then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+        fixLangLink(); // make the language button point to the FR counterpart
+      });
+
+    // EN banner (root-absolute path works anywhere)
+    fetch("/en/banner.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("banner-placeholder").innerHTML = html;
+        document.body.classList.add("has-banner");
+      });
+
+    // Build counterpart link (/en/... ↔ /fr/...)
+    function fixLangLink() {
+      const link = document.getElementById("lang-link");
+      if (!link) return;
+      const p = location.pathname;
+      const target =
+        p.startsWith("/en/") ? p.replace(/^\/en\//, "/fr/") :
+        p.startsWith("/fr/") ? p.replace(/^\/fr\//, "/en/") :
+        "/fr/index.html";
+      link.setAttribute("href", target);
+    }
+    
+
   </script>
 
-  <!-- Content -->
-  <main class="page page--left-sidebar">
-    <aside class="sidebar">
+  <!-- Layout: left sidebar + content -->
+  <main class="page page--left-sidebar page--childhood">
+
+    <!-- Sidebar (same structure as FR), mark current link -->
+    <aside class="sidebar sidebar--bluebar" aria-label="Childhood subpages">
       <ul>
-        <li><a href="cry-function.html" aria-current="page">Cry Function</a></li>
-        <li><a href="cuddly-toy.html">Cuddly Toy</a></li>
+        <li><a href="/en/page/cry-function.html" aria-current="page">Cry Function</a></li>
+        <li><a href="/en/page/cuddly-toy.html">Cuddly Toy</a></li>
       </ul>
     </aside>
 
+    <!-- Text-only article -->
     <article>
       <h1>Cry Function</h1>
-      <p>Content coming soon…</p>
+
+      <h2>What infant crying means</h2>
+      <p>
+        Contrary to the widely held idea that a young child’s crying is a banal, universal,
+        developmentally “normal” behavior, this perspective proposes something quite different:
+        a baby does not cry by nature, but because they are not heard in their first language —
+        the behavioral language.
+      </p>
+      <p>
+        Before crying, the child communicates through subtle micro-signals: muscle contractions,
+        limb movements, facial micro-expressions, gentle whole-body agitation. These signals form
+        an intentional, sophisticated, non-verbal language whose purpose is to alert the caregiver
+        while preserving the emotional safety of the bond.
+      </p>
+      <p>
+        When these signals are ignored, misread, or consistently neglected, the child — faced with
+        a breakdown in communication — enters distress: crying becomes a last-resort language, an
+        escalation in expressive intensity made necessary by the non-reception of the initial cues.
+      </p>
+      <p>
+        Thus, in this view, crying is not “normal” but symptomatic of a relational failure. It
+        signals a rupture in the interactive bond and a desperate attempt to restore contact by a
+        louder, more painful channel.
+      </p>
+
+      <h2>Link to John Bowlby’s work</h2>
+      <p>
+        This idea aligns with the pioneering work of John Bowlby, the British psychiatrist and
+        psychoanalyst who founded attachment theory. Bowlby emphasized that infants’ behaviors
+        (including crying, but also gaze, gestures, and motor agitation) are biologically
+        programmed strategies to maintain proximity to the attachment figure — a condition
+        necessary for survival.
+      </p>
+      <p>
+        In his observational research (not derived from purely theoretical or secondary material),
+        Bowlby showed that crying generally appears when the early cues have not been received or
+        recognized, and that it is often the symptom of an insecure attachment in the making.
+      </p>
+
+      <h2>Reference to cite</h2>
+      <p>
+        <em>Bowlby, J. (1969). <span>Attachment and Loss</span>: Vol. 1. <span>Attachment</span>.
+        New York: Basic Books.</em>
+      </p>
+
+      <h2>Idea to develop: pain vs. request</h2>
+      <p>
+        In early life, crying has a clear, differentiated function: it expresses pain, discomfort,
+        or bodily distress. Alongside this, the child possesses another language — behavioral,
+        subtle, non-verbal — to signal a need or make a request. These are two distinct expressive
+        registers: one tied to pain; the other to intentional communication.
+      </p>
+      <p>
+        However, in an inadequate environment that does not respond properly to the discreet
+        behavioral signals, the child learns to use crying for everything — to express pain and
+        to obtain a response to needs. This shift toward a generalized use of crying blurs the
+        expressive code: it becomes difficult for those around the child to know whether the child
+        is hurting or merely trying to communicate.
+      </p>
+      <p>
+        Thus, having lost the differentiated language because it is not recognized by the
+        environment, the child becomes harder to read. The adult, confronted with a single uniform
+        expression — the cry — no longer knows how to decode whether it signals pain or a relational
+        need. This confusion has consequences for the quality of the relationship and for the child’s
+        emotional development.
+      </p>
+    
     </article>
+
   </main>
 </body>
 </html>
+
 

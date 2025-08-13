@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fonction des pleurs — Enfance</title>
+  <!-- Root-absolute path works from any folder -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header id="nav-placeholder"></header>
+
+  <!-- Bannière -->
+  <div id="banner-placeholder"></div>
+
+  <script>
+    // Depuis /fr/page/, nav.html est un niveau au-dessus
+    fetch("../nav.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+        fixLangLink(); // ajuste le lien "English/Français" vers la contrepartie
+      });
+
+    // Bannière FR (chemin absolu = sûr partout)
+    fetch("/fr/banner.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("banner-placeholder").innerHTML = html;
+        document.body.classList.add("has-banner");
+      });
+
+    // Rend le bouton de langue contextuel (/fr/... ↔ /en/...)
+    function fixLangLink() {
+      const link = document.getElementById("lang-link");
+      if (!link) return;
+      const p = location.pathname;
+      const target =
+        p.startsWith("/fr/") ? p.replace(/^\/fr\//, "/en/") :
+        p.startsWith("/en/") ? p.replace(/^\/en\//, "/fr/") :
+        "/en/index.html";
+      link.setAttribute("href", target);
+    }
+  </script>
+
+  <!-- Mise en page : sidebar à gauche + contenu -->
+  <main class="page page--left-sidebar page--childhood">
+
+    <!-- Sidebar (même menu que la page Enfance), lien courant marqué -->
+    <aside class="sidebar sidebar--bluebar" aria-label="Sous-pages Enfance">
+      <ul>
+        <li><a href="/fr/page/cry-function.html" aria-current="page">Fonction des pleurs</a></li>
+        <li><a href="/fr/page/cuddly-toy.html">Doudou / Objet transitionnel</a></li>
+      </ul>
+    </aside>
+
+    <!-- Article : texte fourni -->
+    <article>
+      <h1>Fonction des pleurs</h1>
+
+      <h2>La signification des pleurs chez l’enfant</h2>
+      <p>
+        Contrairement à une idée aujourd’hui largement répandue selon laquelle les pleurs du jeune enfant seraient un comportement banal, universel et développementalement « normal », cette théorie propose une lecture radicalement différente : le bébé ne pleure pas par nature, mais parce qu’il n’est pas entendu dans son langage premier — le langage comportemental. 
+      </p>
+      <p>
+        Avant les pleurs, l’enfant communique par des micro-signaux subtils : contraction musculaire, mouvement des membres, micro-expressions faciales, agitation corporelle légère. Ces signaux constituent une forme de langage non verbal, intentionnelle et sophistiquée, qui vise à alerter le soignant tout en préservant la sécurité affective du lien.
+      </p>
+      <p>
+        Lorsque ces signaux sont ignorés, mal lus ou systématiquement négligés, l’enfant, confronté à un échec de la communication, entre en détresse : le cri devient alors un langage de dernier recours, une escalade dans l’intensité expressive, rendue nécessaire par la non-réception des signaux initiaux.
+      </p>
+      <p>
+        Ainsi, dans cette perspective, les pleurs ne sont pas normaux mais symptomatiques d’un échec relationnel. Ils expriment une rupture du lien interactif et une tentative désespérée de restaurer une forme de contact, par une voie plus bruyante et douloureuse.
+      </p>
+
+      <h2>Lien avec les travaux de John Bowlby</h2>
+      <p>
+        Cette idée est en cohérence avec les travaux pionniers de John Bowlby, psychiatre et psychanalyste britannique, fondateur de la théorie de l’attachement. Bowlby insistait sur le fait que les comportements des nourrissons (y compris les pleurs, mais aussi les regards, les gestes, l’agitation motrice) sont des stratégies biologiquement programmées pour maintenir la proximité avec la figure d’attachement, condition nécessaire à la survie.
+      </p>
+      <p>
+        Dans ses recherches observationnelles (et non issues de matériel théorique ou secondaire), Bowlby montrait que les pleurs apparaissent généralement lorsque les signaux précoces n’ont pas été reçus ou reconnus, et qu’ils sont souvent le symptôme d’un attachement insécure en train de se construire.
+      </p>
+
+      <h2>Référence à citer</h2>
+      <p><em>Bowlby, J. (1969). <span lang="en">Attachment and Loss</span>: Vol. 1. <span lang="en">Attachment</span>. New York: Basic Books.</em></p>
+
+      <h2>Idée à développer : confusion entre douleur et demande</h2>
+      <p>
+        Les pleurs, chez le jeune enfant, ont à l’origine une fonction claire et différenciée : ils expriment une douleur, un mal-être, un signal de détresse corporelle. En parallèle, l’enfant possède un autre langage — comportemental, subtil, non verbal — pour signifier un besoin ou formuler une demande. Ce sont deux registres expressifs distincts : l’un, lié à la douleur ; l’autre, à la communication intentionnelle.
+      </p>
+      <p>
+        Cependant, dans un environnement inadéquat qui ne répond pas correctement aux signaux comportementaux discrets, l’enfant apprend à utiliser les pleurs pour tout : pour exprimer la douleur comme pour réclamer une réponse à ses besoins. Ce glissement vers un usage généralisé du cri ou des pleurs brouille les repères expressifs : il devient difficile, pour l’entourage, de savoir si l’enfant souffre ou s’il cherche simplement à communiquer.
+      </p>
+      <p>
+        Ainsi, l’enfant, ayant perdu son langage différencié à cause d’une absence de reconnaissance environnementale, devient plus difficile à lire. L’adulte, confronté à une expression uniforme — le cri — ne sait plus décoder s’il s’agit d’un signal de douleur ou d’un besoin relationnel. Cette confusion a des conséquences à la fois sur la qualité de la relation et sur le développement émotionnel de l’enfant.
+      </p>
+    </article>
+
+  </main>
+</body>
+</html>
