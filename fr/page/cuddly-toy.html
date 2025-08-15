@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Doudou / Objet transitionnel | Test website</title>
+    <link rel="stylesheet" href="/css/style.css" />
+ 
+  </head>
+  <body>
+
+    <!-- Navigation -->
+    <header id="nav-placeholder"></header>
+
+    <!-- Banner -->
+    <div id="banner-placeholder"></div>
+
+    <script>
+      // Load FR nav
+      fetch("/fr/nav.html")
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById("nav-placeholder").innerHTML = html;
+          fixLangLink(); // make the language button point to the EN counterpart
+        });
+
+      // Load FR banner
+      fetch("/fr/banner.html")
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById("banner-placeholder").innerHTML = html;
+          document.body.classList.add("has-banner");
+        });
+
+      // Build counterpart link (/fr/... ↔ /en/...)
+      function fixLangLink() {
+        const link = document.getElementById("lang-link");
+        if (!link) return;
+        const p = location.pathname;
+        const target =
+          p.startsWith("/fr/") ? p.replace(/^\/fr\//, "/en/") :
+          p.startsWith("/en/") ? p.replace(/^\/en\//, "/fr/") :
+          "/en/index.html";
+        link.setAttribute("href", target);
+      }
+    </script>
+
+    <!-- Layout: left sidebar + content -->
+    <main class="page page--left-sidebar page--childhood" style="--sidebar-offset:32px">
+      
+      <!-- Sidebar FIRST (ensures it occupies the left grid area) -->
+      <aside class="sidebar sidebar--bluebar" aria-label="Sous-pages Enfance">
+        <ul>
+          <li><a href="/fr/page/cry-function.html">Fonction des pleurs</a></li>
+          <li><a href="/fr/page/cuddly-toy.html" aria-current="page">Doudou / Objet transitionnel</a></li>
+        </ul>
+      </aside>
+
+      <!-- Page content -->
+      <article class="content">
+        <h1>Doudou / Objet transitionnel</h1>
+        <h2>Introduction – Fonction, origine, normalisation, nouvelles perspectives</h2>
+
+        <h3>Fonction</h3>
+        <p>
+          Le <em>doudou</em> (ou objet transitionnel) désigne un objet doux et portable choisi ou
+          investi par l’enfant — tissu, peluche, lange… Il sert de support affectif lors des séparations
+          ou des situations nouvelles. Plus qu’un simple objet, il concentre des traces sensorielles
+          (odeur, texture, chaleur) qui évoquent la sécurité du lien. En psychologie du développement,
+          cet objet porte un nom précis&nbsp;: <strong>l’objet transitionnel</strong>, concept introduit
+          dans les années 1950 par le pédiatre et psychanalyste britannique Donald Winnicott.
+        </p>
+
+        <h3>Origine</h3>
+        <p>
+          L’objet transitionnel émerge dans un contexte historique singulier. Au milieu du XXᵉ siècle,
+          à la suite des deux guerres mondiales, de nombreuses mères durent s’éloigner durablement de
+          leurs enfants pour participer à l’effort de guerre ou occuper les emplois laissés vacants.
+          Cette séparation prolongée, observée par René Spitz et décrite par John Bowlby, provoquait
+          chez l’enfant une anxiété intense et, parfois, des séquelles irréversibles.
+        </p>
+        <p>
+          Dans ce contexte, l’objet transitionnel fut d’abord un <strong>outil de survie émotionnelle</strong>&nbsp;:
+          un objet doux, porteur d’odeurs et de sensations familières, capable de rassurer l’enfant en
+          l’absence du parent. Winnicott en a ensuite proposé une interprétation nouvelle&nbsp;: non plus
+          seulement un substitut permettant de supporter l’absence, mais un <strong>appui actif au développement</strong>,
+          un «&nbsp;pont&nbsp;» vers l’autonomie émotionnelle. Cette relecture a contribué à détourner l’objet
+          transitionnel de sa fonction première de palliatif à la séparation contrainte.
+        </p>
+
+        <h3>La normalisation</h3>
+        <p>
+          Progressivement, les sociétés occidentales ont intégré cet objet dans leurs pratiques éducatives.
+          Le <em>doudou</em> est devenu banal, valorisé par la culture populaire et soutenu par l’industrie
+          de la puériculture. Cependant, cette normalisation a aussi occulté un risque&nbsp;: lorsque le doudou
+          cesse d’être un appui temporaire pour devenir un <strong>substitut relationnel durable</strong>, à long terme il
+          réduit les interactions avec l’environnement, limite la motricité expressive, freine
+          la lecture réciproque des émotions et developpe un terrain anxiogène. 
+        </p>
+
+        <h3>Quand le doudou devient un substitut relationnel</h3>
+        <p>
+          Si l’environnement répond peu aux signaux subtils de l’enfant (regards, mimiques, gestes,
+          ajustements corporels), le doudou peut glisser d’un usage ponctuel à une fonction de remplacement
+          relationnel. Dans ce cas, l’objet prend la place de l’échange humain et tend à renforcer des
+          schémas d’apaisement isolés plutôt que des régulations interactives.
+        </p>
+
+        <h3>Perspective du modèle</h3>
+        <p>
+          Dans la perspective du <strong>Modèle de développement humain</strong> proposé ici, la normalisation
+          de l’usage de l’objet transitionnel enclenche une chaîne dynamique&nbsp;: réduction des
+          interactions avec la figure de soin → anxiété persistante → formation de «&nbsp;nébuleuses&nbsp;»
+          neuronales → <strong>Constellations neuronales sclérosées (CNS)</strong> → réduction progressive du
+          réseau neuronal. À l’adolescence, lorsque le cerveau tente d’intégrer ces CNS dans un contexte
+          souvent incompris, la tension se transforme en colère et s’accompagne d’un élagage neuronal massif
+          (≈&nbsp;50&nbsp;%). Cumulé à d’autres facteurs — comme la privation de mouvement dans l’enfance —
+          ce processus pourrait contribuer à certaines formes de dégénérescence neuronale observées au cours
+          du vieillissement.
+        </p>
+
+        <hr />
+
+        <h2>Introduction au corps scientifique de l’article</h2>
+        <p>
+          La suite de l’article examinera&nbsp;: (1) les <strong>fondements scientifiques</strong> de l’objet
+          transitionnel à travers Winnicott, Bowlby et Spitz&nbsp;; (2) les <strong>contextes historiques et
+          sociologiques</strong> ayant favorisé son apparition et sa diffusion, notamment les bouleversements
+          familiaux liés aux guerres mondiales&nbsp;; (3) les <strong>processus développementaux</strong>
+          impliqués&nbsp;: régulation émotionnelle, formation et intégration des réseaux neuronaux&nbsp;; (4) les
+          <strong>implications contemporaines</strong>&nbsp;: normalisation culturelle, usages éducatifs, risques
+          d’un recours prolongé.
+        </p>
+      </article>
+    </main>
+  </body>
+</html>

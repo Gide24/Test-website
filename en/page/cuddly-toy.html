@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Doudou / Cuddly Toy — Transitional Object | Test website</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+
+    <!-- Top Navigation -->
+    <header id="nav-placeholder"></header>
+
+    <!-- Banner -->
+  <div id="banner-placeholder"></div>
+
+    <script>
+      fetch("/en/nav.html")
+        .then(r => r.text())
+        .then(html => { document.getElementById("nav-placeholder").innerHTML = html; 
+        document.getElementById("nav-placeholder").innerHTML = html;
+        fixLangLink(); // make the language button point to the FR counterpart
+        });
+    
+    // EN banner (root-absolute path works anywhere)
+    fetch("/en/banner.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("banner-placeholder").innerHTML = html;
+        document.body.classList.add("has-banner");
+      });
+
+      </script>
+
+
+
+    <main class="page page--left-sidebar" id="main-content">
+      <!-- Sidebar (mirrored with FR) -->
+      <aside class="sidebar sidebar--bluebar" aria-label="Childhood subpages">
+        <ul>
+          <li><a href="/en/page/cry-function.html">Function of Crying</a></li>
+          <li><a href="/en/page/cuddly-toy.html" aria-current="page">Transitional Object / Cuddly Toy</a></li>
+        </ul>
+      </aside>
+
+      <!-- Page content -->
+      <article class="content">
+        <h1>Transitional Object / Cuddly Toy</h1>
+        <h2>Introduction — Function, origin, normalization, new perspectives</h2>
+
+        <h3>Function</h3>
+        <p>
+          The <em>cuddly toy</em> (or transitional object) is a soft, portable item chosen or
+          invested by the child—cloth, soft toy, blanket. It supports the child during separations
+          or novel situations. More than a simple object, it concentrates sensory traces (smell,
+          texture, warmth) that evoke the safety of the bond. In developmental psychology, the precise
+          term is <strong>transitional object</strong>, introduced in the 1950s by pediatrician and
+          psychoanalyst Donald Winnicott.
+        </p>
+
+        <h3>Origin</h3>
+        <p>
+          The transitional object emerged in a specific historical context. In the mid‑20th century,
+          after two world wars, many mothers were durably separated from their children to join the
+          war effort or fill vacant jobs. This prolonged separation—observed by René Spitz and
+          described by John Bowlby—provoked intense anxiety in children and, at times, irreversible
+          consequences.
+        </p>
+        <p>
+          In that context, the transitional object was first a <strong>tool of emotional survival</strong>:
+          a soft item carrying familiar odors and sensations, able to reassure the child in the parent’s
+          absence. Winnicott then offered a new reading: not merely a substitute to endure absence,
+          but an <strong>active support for development</strong>, a “bridge” toward emotional autonomy.
+          This reframing helped shift the object away from a strictly compensatory function born of
+          constrained separation.
+        </p>
+
+        <h3>Normalization</h3>
+        <p>
+          Gradually, Western societies integrated this object into educational practices. The
+          <em>doudou</em> became ordinary—valorized by popular culture and supported by the baby‑care
+          market. Yet normalization also hides a risk: when the cuddly toy ceases to be a temporary
+          support and becomes a <strong>durable relational substitute</strong>, it can reduce fine
+          interactions with the environment, limit expressive motor activity, and slow reciprocal
+          reading of emotions.
+        </p>
+
+        <h3>When the cuddly toy becomes a relational substitute</h3>
+        <p>
+          If the environment responds weakly to a child’s subtle signals (gaze, facial cues, gestures,
+          bodily adjustments), the cuddly toy can drift from punctual support to a substitute for human
+          exchange. In such cases, the object occupies the place of the relationship and tends to
+          reinforce isolated soothing patterns rather than dyadic regulation.
+        </p>
+
+        <h3>Model perspective</h3>
+        <p>
+          In the <strong>Human Development Model</strong> proposed here, normalization of transitional‑object
+          use can set off a dynamic chain: reduced interactions with the caregiver → persistent anxiety →
+          formation of “nebulas” → <strong>Sclerosed Neuronal Constellations (SNC)</strong> →
+          progressive reduction of the neural network. In adolescence, as the brain attempts to integrate
+          these SNCs in a context often misunderstood, tension turns into anger and is accompanied by
+          massive synaptic pruning (~50%). Combined with other factors—such as restricted movement in
+          childhood—this process could contribute to forms of neuronal degeneration observed in aging.
+        </p>
+
+        <hr />
+
+        <h2>Introduction to the scientific body</h2>
+        <p>
+          The following sections examine: (1) scientific foundations of the transitional object through
+          Winnicott, Bowlby, and Spitz; (2) historical and sociological contexts that fostered its emergence
+          and diffusion, especially family disruptions linked to the world wars; (3) developmental processes
+          involved—emotion regulation and neural network formation/integration; and (4) contemporary implications:
+          cultural normalization, educational uses, and risks of prolonged reliance. This analysis integrates
+          empirical data and theory within the proposed model to connect the history of the transitional object
+          to its potential long‑term developmental effects.
+        </p>
+      </article>
+    </main>
+
+  </body>
+</html>
 

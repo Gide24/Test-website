@@ -60,35 +60,54 @@ nav a:hover {
    Page Layout
    =========================== */
 .page {
-  /* Base page: single column, centered */
-.page {
-  max-width: 1100px;
-  margin: 24px auto;
-  padding: 0 16px;
-}
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/* Two‑column layout: only when a sidebar exists */
+/* Two‑column layout: left sidebar + content */
 .page.page--left-sidebar {
-  display: grid;
-  grid-template-columns: 280px 1fr;   /* sidebar | content */
-  gap: 2rem;
-  align-items: start;
+  --sidebar-offset: 100px;                  /* default vertical drop for the sidebar */
+  display: grid !important;
+  grid-template-columns: 250px minmax(0, 2fr) !important; /* wider content column → more to the right */
+  column-gap: 2rem !important;                         /* visible space between sidebar and text */
+  align-items: start !important;
+  grid-template-areas: "sidebar content";
 }
 
-/* Optional: reading width for text blocks */
-.page .content { max-width: 75ch; }
 
-/* Home page sits in a single column (no grid) */
+
+/* Optional per‑section override of the drop (beats specificity) */
+.page.page--left-sidebar.page--childhood { 
+  --sidebar-offset: 32px; 
+}
+
+/* Reading width for text blocks (increase or comment out if you want more width) */
+.page.page--left-sidebar .content { 
+  max-width: 85ch;
+ }
+
+ .page.page--left-sidebar > .sidebar {
+   grid-column: 1;
+   grid-row: 1;
+   float:none;
+ }
+
+   
+.page.page--left-sidebar > .content {
+grid-column: 2;
+  grid-row: 1;
+  float: none; /* neutralize any old float rule */
+}
+
 .page.page--home { display: block; }
 
 
-/* Make the first heading on home sit nicely under the banner */
-.page--home-grid .content > h1:first-child { margin-top: 0.5rem; }
+/* ≤800px: stack layout; sidebar full width */
+@media (max-width: 800px) {
+  .page.page--left-sidebar { display: block; }  /* sidebar under content */
+ }
 
-.page--childhood { --sidebar-offset: 32px; }
-
-.page--left-sidebar { --sidebar-offset: 100px; } 
 
 
 /* ===========================
@@ -327,37 +346,21 @@ footer {
 /* ===========================
    Responsive
    =========================== */
-/* ---- Desktop/tablet: drop the sidebar a bit ---- */
+/* Desktop/tablet: apply vertical offset to the sidebar */
 @media (min-width: 721px) {
-  .page--left-sidebar > .sidebar {
-    .page--left-sidebar > .sidebar { margin-top: var(--sidebar-offset); }
-  }
+  .page.page--left-sidebar > .sidebar { margin-top: var(--sidebar-offset); }
 }
 
-/* ---- ≤900px: nav tweaks ---- */
+/* ≤900px: nav tweaks */
 @media (max-width: 900px) {
   nav { padding-right: 48px; }
   nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; }
   nav a { font-size: .9rem; }
 }
 
-/* ---- ≤800px: stack layout; sidebar full width ---- */
-@media (max-width: 800px) {
-  .page.page--left-sidebar { display: block; }   /* sidebar under content */
-  .sidebar {
-    width: 100%;
-    position: static;
-    margin: 0 0 1rem 0;                          /* spacing below sidebar */
-  }
-}
-
-/* ---- ≤720px: header wrap + banner text nudge ---- */
+/* ≤720px: banner text nudge */
 @media (max-width: 720px) {
   .topnav { flex-wrap: wrap; gap: .5rem; }
   .topnav .menu { margin-left: 0; width: 100%; justify-content: flex-end; }
-  .banner__text { left: 12px; right: auto; }     /* keep banner title readable */
-}
-
-@media (min-width: 721px) {
-  .page--left-sidebar > .sidebar { margin-top: var(--sidebar-offset); }
+  .banner__text { left: 12px; right: auto; }
 }
