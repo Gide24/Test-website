@@ -1,0 +1,170 @@
+<!-- =============================
+File: /fr/glossary.html
+============================== -->
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Glossaire — Développement humain</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      /* Minimal extras just for the glossary UX; safe alongside your main CSS */
+      .glossary__toolbar { display:flex; gap:.75rem; align-items:center; margin:1rem 0; }
+      .glossary__search { flex:1; padding:.6rem .8rem; border:1px solid rgba(0,0,0,.12); border-radius:.6rem; }
+      .glossary__count { font-size:.9rem; opacity:.8; }
+      .glossary-entry { padding: .85rem 0; border-top: 1px solid rgba(0,0,0,.06); }
+      .glossary-entry:target { outline:2px solid var(--accent); outline-offset:.25rem; border-radius:.5rem; }
+      .glossary-entry dt { font-weight:700; }
+      .glossary-entry dd { margin:.35rem 0 0 0; }
+      .glossary-entry small { opacity:.8; }
+      .badge { font-size:.75rem; padding:.15rem .45rem; border-radius:.4rem; background:rgba(0,0,0,.06); }
+      .muted { opacity:.7; }
+    </style>
+  </head>
+  <body>
+    <header id="nav-placeholder"></header>
+    <script>
+      // Load localized nav
+      fetch("nav.html").then(r => r.text()).then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+      });
+    </script>
+
+    <main class="page">
+      <article>
+        <h1>Glossaire</h1>
+
+        <div class="glossary__toolbar">
+          <input id="glossary-filter" class="glossary__search" type="search" placeholder="Rechercher un terme… (ex. doudou, attachement, CNS)">
+          <span id="glossary-count" class="glossary__count"></span>
+        </div>
+
+        <dl id="glossary-list">
+          <!-- Add new terms by copying a <section class="glossary-entry"> block -->
+
+            <section class="glossary-entry" id="base-securite" data-terms="base de securite bowlby">
+            <dt>Base de sécurité <small class="badge">Bowlby</small></dt>
+            <dd>
+              Concept de la théorie de l’attachement. La <strong>figure d’attachement</strong> offre un point de repère stable qui permet à l’enfant d’explorer son environnement en confiance. 
+              L’enfant sait qu’il peut revenir vers cette base en cas de peur ou de détresse.
+              <span class="muted">Voir aussi <a href="#figure-attachement">Figure d’attachement</a> · <a href="#attachement">Attachement</a>.</span>
+            </dd>
+          </section>
+
+
+          <section class="glossary-entry" id="doudou" data-terms="doudou objet transitionnel peluche couverture">
+            <dt>Doudou</dt>
+            <dd>Nom courant en français pour un objet doux (peluche, lange, couverture) auquel l’enfant s’attache pour se rassurer. <span class="muted">Voir aussi <a href="#objet-transitionnel">Objet transitionnel</a>.</span></dd>
+          </section>
+
+          <section class="glossary-entry" id="figure-attachement" data-terms="figure d'attachement figure attachement caregiver personne de reference adulte de reference parent">
+            <dt>Figure d’attachement <small class="badge">Bowlby</small></dt>
+            <dd>
+              Personne (souvent un adulte familier) avec laquelle l’enfant noue un lien émotionnel spécifique et durable.
+              Elle fournit une <em>base de sécurité</em> pour explorer et un <em>refuge</em> en cas de détresse.
+              Dans la théorie de Bowlby, il peut exister plusieurs figures d’attachement ; ce n’est pas nécessairement la mère.
+              <span class="muted">Voir aussi <a href="#attachement">Attachement</a> · <a href="#anxiete-separation">Anxiété de séparation</a>.</span>
+            </dd>
+          </section>
+
+
+          <section class="glossary-entry" id="objet-transitionnel" data-terms="objet transitionnel winnicott transitional object">
+            <dt>Objet transitionnel <small class="badge">Winnicott, 1951</small></dt>
+            <dd>Premier objet investi par l’enfant, qui sert de pont entre la présence parentale et l’expérience de la séparation. Porte des traces sensorielles (odeur, texture) qui soutiennent la <a href="#regulation-emotionnelle">régulation émotionnelle</a> et la continuité affective.</dd>
+          </section>
+
+          <section class="glossary-entry" id="refuge" data-terms="refuge safe haven bowlby">
+            <dt>Refuge <small class="badge">Bowlby</small></dt>
+            <dd>
+              Concept complémentaire à la <a href="#base-securite">base de sécurité</a>. 
+              La <strong>figure d’attachement</strong> est perçue comme un lieu de réconfort et de protection en cas de peur, de fatigue ou de détresse. 
+              L’enfant s’y tourne pour retrouver calme et sécurité émotionnelle.
+              <span class="muted">Voir aussi <a href="#figure-attachement">Figure d’attachement</a>.</span>
+            </dd>
+          </section>
+
+
+          <section class="glossary-entry" id="attachement" data-terms="attachement bowlby attachment">
+            <dt>Attachement <small class="badge">Bowlby, dès 1958</small></dt>
+            <dd>Lien émotionnel durable entre l’enfant et ses figures de soin. Des réponses rapides et sensibles aux signaux de l’enfant sécurisent l’exploration et diminuent l’<a href="#anxiete-separation">angoisse de séparation</a>.</dd>
+          </section>
+
+          <section class="glossary-entry" id="anxiete-separation" data-terms="anxiete de separation separation anxiety">
+            <dt>Anxiété de séparation</dt>
+            <dd>Réaction de détresse quand l’enfant est éloigné de sa figure d’attachement. Le doudou peut en atténuer l’intensité, permettant au cerveau de maintenir un équilibre vital sans surchauffe du stress.</dd>
+          </section>
+
+          <section class="glossary-entry" id="espace-potentiel" data-terms="espace potentiel potential space winnicott">
+            <dt>Espace potentiel <small class="badge">Winnicott</small></dt>
+            <dd>Zone intermédiaire entre monde interne et réalité externe, où émergent jeu, créativité et symbolisation. L’objet transitionnel vit dans cet espace.</dd>
+          </section>
+
+          <section class="glossary-entry" id="cns" data-terms="constellations neuronales sclerosées cns sclerosed neural constellations">
+            <dt>Constellations neuronales sclérosées (CNS)</dt>
+            <dd>Réseaux de neurones devenus rigides par manque d’intégration relationnelle ou par stress chronique. Dans le modèle proposé, un recours prolongé au substitut relationnel (doudou) peut faciliter la formation de ces constellations.</dd>
+          </section>
+
+          <section class="glossary-entry" id="nebuleuses-neuronales" data-terms="nebuleuses neuronales pre-cns">
+            <dt>Nébuleuses neuronales</dt>
+            <dd>Regroupements de neurones faiblement intégrés, susceptibles d’évoluer vers des <a href="#cns">CNS</a> si la diversité des interactions reste limitée.</dd>
+          </section>
+
+          <section class="glossary-entry" id="elagage-synaptique" data-terms="elagage synaptique pruning adolescence">
+            <dt>Élagage synaptique</dt>
+            <dd>Processus naturel de réduction des connexions neuronales, particulièrement intense à l’adolescence, qui optimise l’efficacité des réseaux souvent au prix d’une perte de redondance.</dd>
+          </section>
+
+          <section class="glossary-entry" id="plasticite-cerebrale" data-terms="plasticite cerebrale plasticity neuroplasticite">
+            <dt>Plasticité cérébrale</dt>
+            <dd>Capacité du cerveau à se modifier en fonction de l’expérience. Favorisée par des interactions riches, variées et sécurisantes.</dd>
+          </section>
+
+          <section class="glossary-entry" id="regulation-emotionnelle" data-terms="regulation emotionnelle emotion regulation">
+            <dt>Régulation émotionnelle</dt>
+            <dd>Ensemble des mécanismes (corporels, relationnels, cognitifs) qui maintiennent un niveau d’activation compatible avec le bien‑être et l’apprentissage.</dd>
+          </section>
+
+          <section class="glossary-entry" id="motricite-expressive" data-terms="motricite expressive mouvement">
+            <dt>Motricité expressive</dt>
+            <dd>Mouvements du corps (postures, gestes, rythmes) qui transmettent des états internes et soutiennent la co‑régulation parent‑enfant.</dd>
+          </section>
+
+          <section class="glossary-entry" id="depression-anaclitique" data-terms="depression anaclitique spitz">
+            <dt>Dépression anaclitique <small class="badge">Spitz</small></dt>
+            <dd>État de retrait et de perte d’acquis observé chez des nourrissons séparés durablement de leur mère, illustrant l’importance vitale de la continuité relationnelle.</dd>
+          </section>
+        </dl>
+      </article>
+    </main>
+
+    <script>
+      // Simple client-side filtering
+      const input = document.getElementById('glossary-filter');
+      const list  = document.getElementById('glossary-list');
+      const items = [...list.querySelectorAll('.glossary-entry')];
+      const counter = document.getElementById('glossary-count');
+
+      function applyFilter(q=""){
+        const needle = q.trim().toLowerCase();
+        let visible = 0;
+        items.forEach(el => {
+          const hay = (el.textContent + ' ' + (el.dataset.terms||'')).toLowerCase();
+          const ok = !needle || hay.includes(needle);
+          el.style.display = ok ? "" : "none";
+          if(ok) visible++;
+        });
+        counter.textContent = visible + " terme" + (visible>1?"s":"");
+      }
+      input.addEventListener('input', e => applyFilter(e.target.value));
+      applyFilter("");
+
+      // If URL has a hash, ensure the matched entry is revealed/highlighted
+      if(location.hash){
+        const target = document.querySelector(location.hash);
+        if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      }
+    </script>
+  </body>
+</html>
+

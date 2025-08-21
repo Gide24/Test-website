@@ -1,0 +1,162 @@
+<!-- =============================
+File: /en/glossary.html
+============================== -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Glossary — Human Development</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      .glossary__toolbar { display:flex; gap:.75rem; align-items:center; margin:1rem 0; }
+      .glossary__search { flex:1; padding:.6rem .8rem; border:1px solid rgba(0,0,0,.12); border-radius:.6rem; }
+      .glossary__count { font-size:.9rem; opacity:.8; }
+      .glossary-entry { padding: .85rem 0; border-top: 1px solid rgba(0,0,0,.06); }
+      .glossary-entry:target { outline:2px solid var(--accent); outline-offset:.25rem; border-radius:.5rem; }
+      .glossary-entry dt { font-weight:700; }
+      .glossary-entry dd { margin:.35rem 0 0 0; }
+      .glossary-entry small { opacity:.8; }
+      .badge { font-size:.75rem; padding:.15rem .45rem; border-radius:.4rem; background:rgba(0,0,0,.06); }
+      .muted { opacity:.7; }
+    </style>
+  </head>
+  <body>
+    <header id="nav-placeholder"></header>
+    <script>
+      fetch("nav.html").then(r => r.text()).then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+      });
+    </script>
+
+    <main class="page">
+      <article>
+        <h1>Glossary</h1>
+
+        <div class="glossary__toolbar">
+          <input id="glossary-filter-en" class="glossary__search" type="search" placeholder="Search a term… (e.g., cuddly toy, attachment, SNC)">
+          <span id="glossary-count-en" class="glossary__count"></span>
+        </div>
+
+        <dl id="glossary-list-en">
+
+            <section class="glossary-entry" id="attachment-figure" data-terms="attachment figure caregiver primary caregiver attachment person">
+            <dt>Attachment figure <small class="badge">Bowlby</small></dt>
+            <dd>
+                A person (often a familiar adult) with whom the child forms a specific, enduring emotional bond.
+                Provides a <em>secure base</em> for exploration and a <em>safe haven</em> in distress.
+                In Bowlby’s theory, there can be multiple attachment figures; it is not necessarily the mother.
+                <span class="muted">See also <a href="#attachment">Attachment</a> · <a href="#separation-anxiety">Separation anxiety</a>.</span>
+            </dd>
+            </section>
+
+            <section class="glossary-entry" id="secure-base" data-terms="secure base bowlby attachment">
+            <dt>Secure base <small class="badge">Bowlby</small></dt>
+            <dd>
+                A central concept in attachment theory. The <strong>attachment figure</strong> provides a stable point of reference from which the child can confidently explore the environment, 
+                knowing they can return to safety if frightened or distressed.
+                <span class="muted">See also <a href="#attachment-figure">Attachment figure</a> · <a href="#attachment">Attachment</a>.</span>
+            </dd>
+            </section>
+
+          <section class="glossary-entry" id="cuddly-toy" data-terms="cuddly toy security blanket doudou">
+            <dt>Cuddly toy / security blanket</dt>
+            <dd>Common English names for a soft object (blanket, teddy) a child clings to for comfort. <span class="muted">See also <a href="#transitional-object">Transitional object</a>.</span></dd>
+          </section>
+
+          <section class="glossary-entry" id="transitional-object" data-terms="transitional object winnicott">
+            <dt>Transitional object <small class="badge">Winnicott, 1951</small></dt>
+            <dd>The first object invested by the child, bridging parental presence and the experience of separation. Carries sensory traces (smell, texture) that support <a href="#emotion-regulation">emotion regulation</a> and a sense of continuity.</dd>
+          </section>
+
+          <section class="glossary-entry" id="attachment" data-terms="attachment bowlby">
+            <dt>Attachment <small class="badge">Bowlby, from 1958</small></dt>
+            <dd>A lasting emotional bond between the child and caregivers. Prompt and sensitive responses secure exploration and reduce <a href="#separation-anxiety">separation anxiety</a>.</dd>
+          </section>
+
+          <section class="glossary-entry" id="separation-anxiety" data-terms="separation anxiety">
+            <dt>Separation anxiety</dt>
+            <dd>Distress reaction when the child is away from the attachment figure. A cuddly toy can soften its intensity, allowing the brain to maintain vital balance without stress overload.</dd>
+          </section>
+
+          <section class="glossary-entry" id="potential-space" data-terms="potential space winnicott">
+            <dt>Potential space <small class="badge">Winnicott</small></dt>
+            <dd>Intermediate area between inner world and external reality, where play, creativity, and symbolization emerge. The transitional object “lives” in this space.</dd>
+          </section>
+
+          <section class="glossary-entry" id="snc" data-terms="sclerosed neural constellations snc cns">
+            <dt>Sclerosed Neural Constellations (SNC)</dt>
+            <dd>Neural networks that become rigid when relational integration is limited or stress is chronic. In the proposed model, prolonged reliance on a relational substitute (the cuddly toy) can facilitate their formation.</dd>
+          </section>
+
+          <section class="glossary-entry" id="neural-nebulae" data-terms="neural nebulae pre-snc">
+            <dt>Neural nebulae</dt>
+            <dd>Loosely integrated clusters of neurons that may evolve into <a href="#snc">SNC</a> if interaction diversity remains limited.</dd>
+          </section>
+
+          <section class="glossary-entry" id="safe-haven" data-terms="safe haven refuge bowlby">
+            <dt>Safe haven <small class="badge">Bowlby</small></dt>
+            <dd>
+                A concept complementary to the <a href="#secure-base">secure base</a>. 
+                The <strong>attachment figure</strong> is experienced as a source of comfort and protection in times of fear, tiredness, or distress. 
+                The child turns to this figure to regain calm and emotional safety.
+                <span class="muted">See also <a href="#attachment-figure">Attachment figure</a>.</span>
+            </dd>
+            </section>
+
+
+          <section class="glossary-entry" id="synaptic-pruning" data-terms="synaptic pruning adolescence">
+            <dt>Synaptic pruning</dt>
+            <dd>Natural reduction of neural connections—especially strong in adolescence—that increases efficiency, often at the cost of redundancy.</dd>
+          </section>
+
+          <section class="glossary-entry" id="brain-plasticity" data-terms="plasticity neuroplasticity">
+            <dt>Brain plasticity</dt>
+            <dd>The brain’s ability to change with experience. Enhanced by rich, varied, and secure interactions.</dd>
+          </section>
+
+          <section class="glossary-entry" id="emotion-regulation" data-terms="emotion regulation">
+            <dt>Emotion regulation</dt>
+            <dd>Mechanisms (bodily, relational, cognitive) that keep arousal at levels compatible with well‑being and learning.</dd>
+          </section>
+
+          <section class="glossary-entry" id="expressive-motor-activity" data-terms="expressive motor activity movement">
+            <dt>Expressive motor activity</dt>
+            <dd>Body movements (posture, gestures, rhythms) that convey internal states and support parent‑child co‑regulation.</dd>
+          </section>
+
+          <section class="glossary-entry" id="anaclitic-depression" data-terms="anaclitic depression spitz">
+            <dt>Anaclitic depression <small class="badge">Spitz</small></dt>
+            <dd>A state of withdrawal and loss of milestones observed in infants separated for long periods from their mother—showing the vital importance of relational continuity.</dd>
+          </section>
+        </dl>
+      </article>
+    </main>
+
+    <script>
+      const inputEN = document.getElementById('glossary-filter-en');
+      const listEN  = document.getElementById('glossary-list-en');
+      const itemsEN = [...listEN.querySelectorAll('.glossary-entry')];
+      const counterEN = document.getElementById('glossary-count-en');
+
+      function applyFilterEN(q=""){
+        const needle = q.trim().toLowerCase();
+        let visible = 0;
+        itemsEN.forEach(el => {
+          const hay = (el.textContent + ' ' + (el.dataset.terms||'')).toLowerCase();
+          const ok = !needle || hay.includes(needle);
+          el.style.display = ok ? "" : "none";
+          if(ok) visible++;
+        });
+        counterEN.textContent = visible + (visible>1?" terms":" term");
+      }
+      inputEN.addEventListener('input', e => applyFilterEN(e.target.value));
+      applyFilterEN("");
+
+      if(location.hash){
+        const target = document.querySelector(location.hash);
+        if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      }
+    </script>
+  </body>
+</html>

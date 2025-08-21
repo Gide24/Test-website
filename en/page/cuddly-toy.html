@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Doudou / Cuddly Toy — Transitional Object | Test website</title>
     <link rel="stylesheet" href="/css/style.css" />
@@ -12,39 +12,49 @@
     <header id="nav-placeholder"></header>
 
     <!-- Banner -->
-  <div id="banner-placeholder"></div>
+    <div id="banner-placeholder"></div>
 
     <script>
+      // Load EN nav
       fetch("/en/nav.html")
         .then(r => r.text())
-        .then(html => { document.getElementById("nav-placeholder").innerHTML = html; 
-        document.getElementById("nav-placeholder").innerHTML = html;
-        fixLangLink(); // make the language button point to the FR counterpart
+        .then(html => {
+          document.getElementById("nav-placeholder").innerHTML = html;
+          fixLangLink(); // point to FR counterpart
         });
-    
-    // EN banner (root-absolute path works anywhere)
-    fetch("/en/banner.html")
-      .then(r => r.text())
-      .then(html => {
-        document.getElementById("banner-placeholder").innerHTML = html;
-        document.body.classList.add("has-banner");
-      });
 
-      </script>
+      // Load EN banner
+      fetch("/en/banner.html")
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById("banner-placeholder").innerHTML = html;
+          document.body.classList.add("has-banner");
+        });
 
+      // Build counterpart link (/en/... ↔ /fr/...)
+      function fixLangLink() {
+        const link = document.getElementById("lang-link");
+        if (!link) return;
+        const p = location.pathname;
+        const target =
+          p.startsWith("/en/") ? p.replace(/^\/en\//, "/fr/") :
+          p.startsWith("/fr/") ? p.replace(/^\/fr\//, "/en/") :
+          "/fr/index.html";
+        link.setAttribute("href", target);
+      }
+    </script>
 
-
-    <main class="page page--left-sidebar" id="main-content">
-      <!-- Sidebar (mirrored with FR) -->
+    <!-- Layout -->
+    <main class="page page--left-sidebar page--childhood">
+      <!-- Sidebar FIRST -->
       <aside class="sidebar sidebar--bluebar" aria-label="Childhood subpages">
         <ul>
-          <li><a href="/en/page/cry-function.html">Function of Crying</a></li>
-          <li><a href="/en/page/cuddly-toy.html" aria-current="page">Transitional Object / Cuddly Toy</a></li>
+          <li><a href="/en/page/cry-function.html">Cry Function</a></li>
+          <li><a href="/en/page/cuddly-toy.html" aria-current="page">Transitional Object</a></li>
         </ul>
       </aside>
-
       <!-- Page content -->
-      <article class="content">
+      <article>
         <h1>Transitional Object / Cuddly Toy</h1>
         <h2>Introduction — Function, origin, normalization, new perspectives</h2>
 

@@ -59,55 +59,78 @@ nav a:hover {
 /* ===========================
    Page Layout
    =========================== */
+
+
 .page {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
-/* Two‑column layout: left sidebar + content */
+/* Vertical drop for the sidebar */
+.page--left-sidebar .sidebar {
+  margin-top: var(--sidebar-offset, 150px);
+  position: relative;     /* neutralize any sticky/top rules */
+  float: none;
+}
+
+.page--left-sidebar > article {
+  max-width: none;
+  min-width: 0;           /* prevents overflow issues */
+}
+
 .page.page--left-sidebar {
-  --sidebar-offset: 100px;                  /* default vertical drop for the sidebar */
-  display: grid !important;
-  grid-template-columns: 250px minmax(0, 2fr) !important; /* wider content column → more to the right */
-  column-gap: 2rem !important;                         /* visible space between sidebar and text */
-  align-items: start !important;
-  grid-template-areas: "sidebar content";
+  display: grid;
+  grid-template-columns: 250px minmax(0, 2fr); /* sidebar | content */
+  column-gap: 2rem;
+  align-items: start;
+  /* default vertical drop for the sidebar; tune globally here */
+  --sidebar-offset: 48px;
 }
 
-
-
-/* Optional per‑section override of the drop (beats specificity) */
-.page.page--left-sidebar.page--childhood { 
-  --sidebar-offset: 32px; 
+/* Per-section override (if you want a different drop on childhood pages) */
+.page.page--left-sidebar.page--childhood {
+  --sidebar-offset: 100px; /* change this number to move the sidebar down/up */
 }
 
-/* Reading width for text blocks (increase or comment out if you want more width) */
-.page.page--left-sidebar .content { 
-  max-width: 85ch;
- }
+/* Place the children explicitly in the grid and apply the drop */
+@media (min-width: 721px) {
+  .page.page--left-sidebar > .sidebar {
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: var(--sidebar-offset) !important; /* <-- this is the drop */
+    float: none;
+  }
 
- .page.page--left-sidebar > .sidebar {
-   grid-column: 1;
-   grid-row: 1;
-   float:none;
- }
-
-   
-.page.page--left-sidebar > .content {
-grid-column: 2;
-  grid-row: 1;
-  float: none; /* neutralize any old float rule */
+  .page.page--left-sidebar > article {
+    grid-column: 2;
+    grid-row: 1;
+    max-width: none; /* optional reading width */
+    min-width: 0;    /* avoid overflow in grid */
+  }
 }
 
-.page.page--home { display: block; }
+.page--home-grid {
+  
+  display: block; 
+} /* force single-column on home */
 
 
-/* ≤800px: stack layout; sidebar full width */
-@media (max-width: 800px) {
-  .page.page--left-sidebar { display: block; }  /* sidebar under content */
- }
+  /* Home page remains single-column */
+  .page.page--home {
+    padding-left: 1rem;
+    }
 
+    /* Trim default top margin of first heading in main */
+   main > h1:first-child { 
+      margin-top: 0; 
+    }
+
+/* You removed .content; make sure old rules don’t fight us */
+.content { float: none !important; }  /* neutralize legacy float */
+
+/* Optional: if you still use .content anywhere, neutralize any legacy float that breaks layout */
+.content { float: none; }
 
 
 /* ===========================
@@ -244,24 +267,23 @@ grid-column: 2;
      padding: 0; 
     }
 
-    #banner-placeholder::after {
+#banner-placeholder::after {
     content: "";
     display: block;
     height: 1rem;   /* small elegant gap; tweak to taste (e.g., 0.75rem / 1.25rem) */
     }
 
- /* Two‑column layout: sidebar left, content right */
-    .page.page--left-sidebar {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 2rem;
-      align-items: start;  /* prevents sidebar dropping */
-    }
+  /* Full-width pages when a banner is loaded */
+.has-banner .page {
+  max-width: none;        /* remove 1200px cap */
+  padding-right: 0;       /* let text reach the right edge */
+}
+/* keep a small left gutter and the column gap */
+.has-banner .page.page--left-sidebar {
+  padding-left: 1rem;     /* optional left gutter */
+  column-gap: 2rem;       /* sidebar↔text spacing */
+}
 
-    /* Trim default top margin of first heading in main */
-    main > h1:first-child { 
-      margin-top: 0; 
-    }
 
     /* Soft dark gradient on the RIGHT so white text pops */
 .banner::after {
@@ -364,3 +386,4 @@ footer {
   .topnav .menu { margin-left: 0; width: 100%; justify-content: flex-end; }
   .banner__text { left: 12px; right: auto; }
 }
+
