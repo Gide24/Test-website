@@ -55,6 +55,27 @@ nav a:hover {
     color: red;
 }
 
+/* =========================
+   AI page typography
+   ========================= */
+
+.page--ai article h1 {
+  font-size: 1.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.page--ai article h2 {
+  font-size: 1.3rem;
+  margin-top: 2.2rem;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+
+.page--ai article p {
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: none;
+}
 
 /* ===========================
    Page Layout
