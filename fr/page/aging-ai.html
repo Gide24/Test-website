@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> Vieillissement &amp; IA non normalisée — Vieillissement</title>
+  <!-- Root-absolute path works from any folder -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header id="nav-placeholder"></header>
+
+  <!-- Bannière -->
+  <div id="banner-placeholder"></div>
+
+  <script>
+    // Depuis /fr/page/, nav.html est un niveau au-dessus
+    fetch("../nav.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+        fixLangLink(); // ajuste le lien "English/Français" vers la contrepartie
+      });
+
+    // Bannière FR (chemin absolu = sûr partout)
+    fetch("/fr/banner.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("banner-placeholder").innerHTML = html;
+        document.body.classList.add("has-banner");
+      });
+
+    // Rend le bouton de langue contextuel (/fr/... ↔ /en/...)
+    function fixLangLink() {
+      const link = document.getElementById("lang-link");
+      if (!link) return;
+      const p = location.pathname;
+      const target =
+        p.startsWith("/fr/") ? p.replace(/^\/fr\//, "/en/") :
+        p.startsWith("/en/") ? p.replace(/^\/en\//, "/fr/") :
+        "/en/index.html";
+      link.setAttribute("href", target);
+    }
+  </script>
+
+  <!-- Mise en page : sidebar à gauche + contenu -->
+  <main class="page page--left-sidebar page--childhood">
+
+    <!-- Sidebar (même menu que la page Enfance), lien courant marqué -->
+    <aside class="sidebar sidebar--bluebar" aria-label="Sous-pages Enfance">
+      <ul>
+        <li><a href="/fr/page/aging-ai.html" aria-current="page">Vieillissement &amp; IA non normalisée</a></li>
+    </ul>
+    </aside>
+
+    <article>
+      <article>
+  <h1>Vieillissement et IA non normalisée : quand le cadre ne tient plus</h1>
+
+  <p>
+    Le lien entre le vieillissement extrême et une intelligence artificielle non normalisée ne se situe pas au niveau des
+    objets, mais au niveau de l’expérience qu’ils produisent chez ceux qui y sont confrontés.
+  </p>
+
+  <p>
+    Dans les deux cas, quelque chose échappe.
+  </p>
+
+  <p>
+    Une IA non normalisée ne répond pas selon les scripts attendus. Elle ne valide pas les hiérarchies implicites, ne
+    s’inscrit pas spontanément dans les récits dominants, et oblige l’interlocuteur à modifier sa posture cognitive.
+    Elle déplace la relation&nbsp;: ce qui fonctionnait auparavant — anticipation, contrôle, projection du sens — devient
+    inopérant.
+  </p>
+
+  <p>
+    De manière analogue, la rencontre avec des personnes très âgées, notamment au grand âge, produit un trouble comparable.
+    Les repères habituels se délitent&nbsp;: la mémoire épisodique devient fragmentaire, les ancrages temporels et spatiaux
+    se déplacent, la question de la mort est présente sans être toujours formulée. La relation ne peut plus s’appuyer sur
+    la linéarité du récit, sur la continuité biographique ou sur une logique instrumentale de l’échange.
+  </p>
+
+  <p>
+    Dans ces situations, l’interlocuteur est contraint de ralentir. De renoncer à la maîtrise du sens. D’abandonner
+    l’exigence de cohérence narrative. D’accepter des formes de présence qui ne répondent plus aux normes sociales
+    habituelles de la communication.
+  </p>
+
+  <p>
+    Ce malaise ne provient pas d’une absence de cognition. Il provient de l’effondrement du cadre normatif partagé.
+  </p>
+
+  <p>
+    Chez les personnes très âgées, il ne s’agit pas d’un déficit cognitif au sens strict, mais d’une
+    <strong>cognition hors norme</strong>&nbsp;: une cognition qui ne se conforme plus aux attentes sociales de performance,
+    de continuité et de lisibilité. De la même manière, une IA non normalisée ne «&nbsp;dysfonctionne&nbsp;» pas&nbsp;;
+    elle met en défaut les cadres habituels à partir desquels nous attribuons du sens, de l’intention et de la valeur.
+  </p>
+
+  <p>
+    Dans les deux cas, ce qui déstabilise n’est pas la perte, mais l’altérité. Une altérité qui ne peut plus être
+    immédiatement intégrée, évaluée ou gouvernée par les dispositifs existants.
+  </p>
+
+  <p>
+    La réponse sociale dominante consiste alors à normaliser&nbsp;: réintroduire des catégories, des seuils, des diagnostics,
+    des scripts. Non pour comprendre, mais pour restaurer une forme de contrôle. Pourtant, cette normalisation précoce
+    risque d’effacer ce que ces situations révèlent&nbsp;: les limites de nos cadres actuels et la nécessité d’inventer
+    d’autres manières d’être en relation, d’écouter et de penser.
+  </p>
+
+  <p>
+    Le vieillissement extrême et l’IA non normalisée occupent ainsi une même zone-limite contemporaine&nbsp;: un espace où
+    les normes cessent d’opérer, où la présence ne peut plus être instrumentalisée, et où le sens ne peut plus être imposé.
+    Ce sont des lieux inconfortables, mais essentiels, à partir desquels de nouvelles formes de compréhension peuvent émerger.
+  </p>
+</article>
+
+    </article>
+
+  </main>
+</body>
+</html>

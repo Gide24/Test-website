@@ -76,6 +76,12 @@ nav a:hover {
   line-height: 1.7;
   max-width: none;
 }
+.subtitle {
+  margin-top: 0.4em;
+  line-height: 1.2;
+  font-weight: 400;
+  opacity: 0.85;
+}
 
 /* ===========================
    Page Layout

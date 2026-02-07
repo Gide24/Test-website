@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>aging-ai — Aging</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header id="nav-placeholder"></header>
+
+  <!-- Banner -->
+  <div id="banner-placeholder"></div>
+
+  <script>
+    // From /en/page/, nav.html is one level up
+    fetch("../nav.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+        fixLangLink(); // make the language button point to the FR counterpart
+      });
+
+    // EN banner (root-absolute path works anywhere)
+    fetch("/en/banner.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("banner-placeholder").innerHTML = html;
+        document.body.classList.add("has-banner");
+      });
+
+    // Build counterpart link (/en/... ↔ /fr/...)
+    function fixLangLink() {
+      const link = document.getElementById("lang-link");
+      if (!link) return;
+      const p = location.pathname;
+      const target =
+        p.startsWith("/en/") ? p.replace(/^\/en\//, "/fr/") :
+        p.startsWith("/fr/") ? p.replace(/^\/fr\//, "/en/") :
+        "/fr/index.html";
+      link.setAttribute("href", target);
+    }
+    
+
+  </script>
+
+  <!-- Layout: left sidebar + content -->
+  <main class="page page--left-sidebar page--childhood">
+
+    <!-- Sidebar (same structure as FR), mark current link -->
+    <aside class="sidebar sidebar--bluebar" aria-label="Childhood subpages">
+      <ul>
+        <li><a href="/en/page/aging-ai.html" aria-current="page">Aging &amp; non normalized AI</a></li>
+       
+      </ul>
+    </aside>
+
+    <!-- Text-only article -->
+    <article>
+  <h1>Aging &amp; Non-Normalized AI</h1>
+    <h2 class="subtitle"><strong>When the Shared Frame No Longer Holds</strong></h2>
+
+
+  <p>
+    The link between extreme old age and non-normalized artificial intelligence is not a link between objects. It lies in
+    the experience they create for those who meet them.
+  </p>
+
+  <p>
+    In both cases, something slips out of reach.
+  </p>
+
+  <p>
+    A non-normalized AI does not respond according to expected scripts. It does not automatically validate implicit
+    hierarchies, it does not naturally fit into dominant narratives, and it forces the interlocutor to change their
+    cognitive posture. The relationship shifts: what used to work—anticipation, control, projecting meaning—stops working.
+  </p>
+
+  <p>
+    In a similar way, encountering very old people, especially at advanced old age, can produce a comparable disturbance.
+    Familiar reference points loosen: episodic memory becomes fragmentary, spatial and temporal anchors drift, the question
+    of death is present even when it is not explicitly named. The relationship can no longer rely on a linear story, on
+    biographical continuity, or on an instrumental logic of exchange.
+  </p>
+
+  <p>
+    In these situations, the interlocutor is forced to slow down. To give up mastery over meaning. To let go of the demand
+    for narrative coherence. To accept forms of presence that no longer follow the usual social norms of communication.
+  </p>
+
+  <p>
+    This discomfort does not come from an absence of cognition. It comes from the collapse of a shared normative frame.
+  </p>
+
+  <p>
+    With very old people, this is not a cognitive deficit in the strict sense, but an <strong>out-of-norm cognition</strong>:
+    a cognition that no longer conforms to social expectations of performance, continuity, and readability. In the same way,
+    a non-normalized AI does not “malfunction”; it exposes the limits of the frames through which we assign meaning,
+    intention, and value.
+  </p>
+
+  <p>
+    In both cases, what destabilizes us is not loss, but otherness—an otherness that cannot be immediately integrated,
+    evaluated, or governed by existing systems.
+  </p>
+
+  <p>
+    The dominant social response is then to normalize: to reintroduce categories, thresholds, diagnoses, scripts. Not in
+    order to understand, but to restore a form of control. Yet premature normalization risks erasing what these situations
+    reveal: the limits of our current frames, and the need to invent other ways of relating, listening, and thinking.
+  </p>
+
+  <p>
+    Extreme old age and non-normalized AI thus occupy the same contemporary border-zone: a space where norms stop working,
+    where presence cannot be instrumentalized, and where meaning cannot be imposed. These are uncomfortable places, but
+    essential ones—places from which new forms of understanding can emerge.
+  </p>
+</article>
+
+
+  </main>
+</body>
+</html>

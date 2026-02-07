@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aging</title>
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- Page-specific styling (you can move this to style.css later) -->
+  
+</head>
+<body>
+  <!-- Navigation -->
+  <header id="nav-placeholder"></header>
+
+  <!-- Banner -->
+  <div id="banner-placeholder"></div>
+
+  <script>
+    fetch("nav.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+    });
+
+     // Load EN banner
+    fetch("/en/banner.html")
+        .then(r => r.text())
+        .then(html => {
+        document.getElementById("banner-placeholder").innerHTML = html;
+        document.body.classList.add("has-banner");   // ← flag for CSS
+    });
+
+    </script>
+
+        <!-- Content -->
+   <main class="page page--left-sidebar page--childhood">
+
+        <aside class="sidebar sidebar--bluebar" aria-label="Childhood subpages">
+            <ul>
+                <li><a href="/en/page/aging-ai.html">Aging &amp; non normalized AI</a></li>
+            </ul>
+        </aside>
+
+        <article>
+  <h1>Aging : A Developmental Perspective</h1>
+
+  <p>
+    Aging is most often approached through the lens of decline: loss of capacities, degeneration, progressive weakening
+    of the body and cognition. This dominant view rests on an implicit conception of aging as a terminal phase—homogeneous
+    and essentially deficient—of human development.
+  </p>
+
+  <p>
+    Yet this representation is becoming increasingly insufficient in light of contemporary realities.
+  </p>
+
+  <p>
+    The massive extension of life expectancy has profoundly transformed the conditions under which aging unfolds.
+    Millions of individuals now live for several decades beyond the biological and social thresholds around which the
+    human species had historically organized itself. This situation is not a simple continuation of the past, but a
+    <strong>new developmental constraint</strong> to which the body, cognition, and social structures must adapt.
+  </p>
+
+  <p>
+    From this perspective, aging can be understood not only as a process of loss, but also as a
+    <strong>process of adaptation under the constraint of increased longevity</strong>.
+  </p>
+
+  <h2>An unstable phase, still in the making</h2>
+
+  <p>
+    Contemporary aging is marked by instability and by a striking diversity of individual trajectories. Each person
+    ages differently, depending on their life history, early adaptations, and biological, cognitive, relational, and
+    environmental resources. At 80, 90, or 95 years old, decades of personal history continue to shape forms of presence,
+    memory, and relationship to the world.
+  </p>
+
+  <p>
+    This heterogeneity is not a dysfunction of aging. On the contrary, it is <strong>expected</strong> in a developmental
+    phase that has not yet found stable forms. In living systems, diversity of responses is a mode of exploration: the
+    more varied the trajectories, the greater the system’s chances of discovering viable equilibria when facing a new
+    constraint.
+  </p>
+
+  <p>
+    Seeking to define “normal aging” in this context amounts to projecting outdated norms onto a reality that has shifted
+    into a different regime.
+  </p>
+
+  <h2>Aging and social norms</h2>
+
+  <p>
+    Faced with this instability, contemporary societies tend to multiply attempts at normalization: standardized
+    assessments, cognitive thresholds, global diagnostic categories, universal models of “successful aging.” These tools
+    respond to needs for prediction, management, and reassurance, but they struggle to account for the true complexity of
+    later-life trajectories.
+  </p>
+
+  <p>
+    This mismatch generates a growing unease: what escapes the norm is perceived as anomaly; what resists evaluation is
+    quickly pathologized. Yet in an emerging developmental phase, the absence of stable norms is not a failure—it is a
+    sign that the process is still unfolding.
+  </p>
+
+  <h2>Shifting the perspective</h2>
+
+  <p>
+    This approach therefore proposes a shift in perspective: no longer thinking of aging solely as an ending, but as a
+    <strong>late reconfiguration of human development</strong>, shaped by unprecedented longevity—still poorly
+    understood, still insufficiently supported, yet deeply active.
+  </p>
+
+  <p>
+    Within this framework, the diversity of aging trajectories, losses as well as reorganizations, fragilities as well as
+    new forms of presence, are not aberrations to be corrected. They are valuable indicators of a living system in the
+    process of searching for new equilibria.
+  </p>
+</article>
+
+
+    </main>
+</body>
+</html>
+
+
