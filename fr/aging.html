@@ -15,14 +15,14 @@
 
   <script>
     // Nav FR
-    fetch("../nav.html")
+    fetch("nav.html")
       .then(r => r.text())
       .then(html => {
         document.getElementById("nav-placeholder").innerHTML = html;
       });
 
     // Bannière FR
-    fetch("/fr/banner.html")
+    fetch("banner.html")
       .then(r => r.text())
       .then(html => {
         document.getElementById("banner-placeholder").innerHTML = html;
