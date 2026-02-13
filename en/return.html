@@ -1,37 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Memory</title>
+  <title>The Return</title>
   <link rel="stylesheet" href="../css/style.css" />
-
-  <!-- Page-specific styling (you can move this to style.css later) -->
-  
 </head>
 <body>
   <!-- Navigation -->
   <header id="nav-placeholder"></header>
 
-  <!-- Banner -->
+  <!-- Bannière -->
   <div id="banner-placeholder"></div>
 
   <script>
+    // Nav FR
     fetch("nav.html")
       .then(r => r.text())
       .then(html => {
         document.getElementById("nav-placeholder").innerHTML = html;
-    });
+      });
 
-     // Load EN banner
-    fetch("/en/banner.html")
-        .then(r => r.text())
-        .then(html => {
+    // Bannière FR
+    fetch("/fr/banner.html")
+      .then(r => r.text())
+      .then(html => {
         document.getElementById("banner-placeholder").innerHTML = html;
-        document.body.classList.add("has-banner");   // ← flag for CSS
-    });
-
-    </script>
+        document.body.classList.add("has-banner"); // même comportement que la page EN
+      });
+  </script>
 
 <article style="
   display:flex;
@@ -45,7 +42,7 @@
     color:#c00000;
     animation: blink-strong 0.8s infinite;
   ">
-    Under construction
+    En construction
   </h1>
 
   <p id="random-message" style="

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adolescence</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header id="nav-placeholder"></header>
+
+  <!-- Bannière -->
+  <div id="banner-placeholder"></div>
+
+  <script>
+    // Nav FR
+    fetch("nav.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+      });
+
+    // Bannière FR
+    fetch("/fr/banner.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("banner-placeholder").innerHTML = html;
+        document.body.classList.add("has-banner"); // même comportement que la page EN
+      });
+  </script>
+
+<article style="
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:60vh;
+">
+
+  <h1 style="
+    color:#c00000;
+    animation: blink-strong 0.8s infinite;
+  ">
+    En construction
+  </h1>
+
+  <p id="random-message" style="
+    margin-top:1rem;
+    font-style:italic;
+    opacity:0.7;
+  "></p>
+
+  <style>
+    @keyframes blink-strong {
+      0%   { opacity: 1; }
+      49%  { opacity: 1; }
+      50%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+  </style>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const el = document.getElementById("random-message");
+      if (!el) return;
+
+      const messages = [
+        "cognitive construction in progress…",
+        "thought architecture under development…",
+        "system undergoing reorganization…",
+        "progressive coherence building…",
+        "conceptual network expanding…",
+        "loading internal continuities…",
+        "adjusting the cognitive environment…"
+      ];
+
+      el.textContent = messages[Math.floor(Math.random() * messages.length)];
+    });
+  </script>
+
+</article>
+
+</body>
+</html>

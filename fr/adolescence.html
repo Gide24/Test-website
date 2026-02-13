@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adolescence</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header id="nav-placeholder"></header>
+
+  <!-- Bannière -->
+  <div id="banner-placeholder"></div>
+
+  <script>
+    // Nav FR
+    fetch("nav.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+      });
+
+    // Bannière FR
+    fetch("/fr/banner.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("banner-placeholder").innerHTML = html;
+        document.body.classList.add("has-banner"); // même comportement que la page EN
+      });
+  </script>
+
+  <!-- Contenu -->
+  <main class="page page--left-sidebar page--childhood">
+
+    <aside class="sidebar sidebar--bluebar" aria-label="Sous-pages Adolescence">
+        <ul>
+          <li><a href="/fr/page/adolescence-crisis.html">Crise Adolescence</a></li>
+        </ul>
+    </aside>
+
+    <article>
+
+  <h1>L’adolescence comme phase critique de réorganisation : une lecture à partir de l’attachement</h1>
+
+  <h2>Attachement et survie : un cadre fonctionnel</h2>
+
+  <p>Chez l’humain, la survie ne peut être réduite à la satisfaction des besoins biologiques primaires.</p>
+
+  <p>Les observations cliniques et développementales convergent vers un constat fondamental : la continuité du fonctionnement de l’organisme humain dépend de l’existence d’un lien stable avec une figure d’attachement.</p>
+
+  <p>Sans lien, l’organisme humain peut s’éteindre.<br>
+  Le lien n’est donc pas secondaire à la survie : il en est une condition.</p>
+
+  <p>L’attachement doit ainsi être compris comme un système de régulation fondamental, antérieur aux constructions sociales, éducatives ou morales.<br>
+  Il ne relève ni d’un idéal relationnel ni d’une préférence affective, mais d’un mécanisme sélectionné au cours de l’évolution pour assurer la survie d’un organisme immature et dépendant.</p>
+
+  <p>Lorsque ce système fonctionne dans un environnement suffisamment accessible et cohérent, il soutient la sécurité, l’exploration et la différenciation.<br>
+  Lorsqu’il est entravé, le système ne disparaît pas : il se transforme.</p>
+
+  <h2>Adaptation précoce et perte de plasticité</h2>
+
+  <p>Dans certains contextes développementaux, la figure d’attachement est partiellement inaccessible : réponses intermittentes, imprévisibilité, contraintes environnementales élevées.<br>
+  Face à ces conditions, l’organisme n’a pas d’autre choix que de s’adapter.</p>
+
+  <p>Cette adaptation peut prendre la forme d’une rigidification fonctionnelle :<br>
+  réduction de la plasticité, stabilisation précoce de modes de régulation internes, limitation de l’expression du système d’attachement.</p>
+
+  <p>Il est essentiel de souligner que cette rigidification n’est ni pathologique ni déficitaire en soi.<br>
+  Elle constitue une solution de survie, permettant au système de maintenir une cohérence minimale dans un environnement contraignant.</p>
+
+  <p>Cependant, cette solution laisse une trace structurelle.</p>
+
+  <h2>L’adolescence comme moment de pression interne</h2>
+
+  <p>L’adolescence correspond à une phase de transformations internes majeures :<br>
+  modifications somatiques, réorganisation identitaire, remaniement des représentations de soi et des relations.<br>
+  Ces transformations exercent une pression interne forte sur l’ensemble du système.</p>
+
+  <p>Du point de vue développemental, cette phase implique une réorganisation structurelle du système vivant.<br>
+  Or toute réorganisation suppose une capacité de plasticité suffisante.</p>
+
+  <p>Lorsque le système a conservé cette plasticité, les transformations adolescentes peuvent s’opérer avec des tensions limitées.<br>
+  Lorsque cette plasticité a été réduite par des adaptations antérieures coûteuses, la pression interne rencontre une structure devenue rigide.</p>
+
+  <h2>Origine du mal-être adolescent</h2>
+
+  <p>Dans cette perspective, le mal-être adolescent ne résulte pas d’un rejet du lien ni d’une opposition intentionnelle à l’autorité parentale.<br>
+  Il émerge de la collision entre une force interne de transformation et une structure peu flexible.</p>
+
+  <p>Le système est alors soumis à une contrainte paradoxale :</p>
+
+  <ul>
+    <li>rester stable implique l’étouffement de la dynamique interne,</li>
+    <li>se transformer implique l’ouverture de zones de souffrance anciennes, parfois difficilement tolérables.</li>
+  </ul>
+
+  <p>Cette tension constitue une impasse développementale.</p>
+
+  <p>Le malaise qui en résulte est souvent difficilement accessible au langage.<br>
+  Il s’exprime alors par des manifestations comportementales : colère, retrait, opposition, conduites de rupture.</p>
+
+  <h2>Conflit entre systèmes et incompréhension mutuelle</h2>
+
+  <p>Dans ce contexte, le conflit parent–adolescent peut être compris comme un conflit entre deux systèmes soumis à des contraintes différentes.</p>
+
+  <p>Le parent mobilise généralement un registre fondé sur la satisfaction des besoins biologiques et matériels, ainsi que sur l’investissement passé.<br>
+  L’adolescent, quant à lui, tente d’exprimer une impossibilité actuelle de se réorganiser dans un environnement devenu trop contraignant.</p>
+
+  <p>Ces deux registres ne sont pas incompatibles sur le plan logique, mais ils sont incommensurables sur le plan fonctionnel.<br>
+  L’un parle de ce qui a été donné, l’autre de ce qui ne peut plus se transformer.</p>
+
+  <h2>Les ruptures comme réponses systémiques</h2>
+
+  <p>Lorsque la tension excède les capacités d’intégration du système, des ruptures peuvent apparaître.<br>
+  Ces ruptures — relationnelles, affectives ou symboliques — doivent être comprises non comme des refus du lien, mais comme des tentatives de stabilisation.</p>
+
+  <p>Dans la majorité des cas, elles prennent la forme d’un élagage sévère, permettant au système de retrouver une cohérence au prix de pertes importantes.<br>
+  Dans des situations plus extrêmes, elles peuvent conduire à des ruptures plus radicales, signalant un dépassement des capacités adaptatives.</p>
+
+  <h2>Enjeux théoriques et cliniques</h2>
+
+  <p>Lire l’adolescence à la lumière de l’attachement conduit à un déplacement majeur du regard.<br>
+  Il ne s’agit plus de juger les comportements à l’aune de normes sociales ou éducatives, mais de comprendre les conditions structurelles dans lesquelles ils émergent.</p>
+
+  <p>Ce cadre permet de penser l’accompagnement adolescent non comme une correction des conduites, mais comme une réflexion sur l’ajustement des contraintes pesant sur le système vivant.</p>
+
+  <p>C’est dans cette capacité à comprendre les dynamiques de survie, plutôt qu’à les moraliser, que se situe un enjeu central pour les pratiques éducatives, cliniques et sociales contemporaines.</p>
+
+</article>
