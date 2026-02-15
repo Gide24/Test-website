@@ -1,48 +1,72 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
   <title>Vieillissement : une lecture développementale</title>
-  <link rel="stylesheet" href="../css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #111;
+  }
+
+  article {
+  max-width: 980px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  }
+
+  h1 {
+  font-size: 2.2rem;
+  line-height: 1.25;
+  margin-bottom: 2rem;
+  color: #3b73b9; /* bleu foncé */
+  }
+
+  h2 {
+  font-size: 1.4rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #3b73b9;
+  }
+
+  p {
+    margin-bottom: 1.2rem;
+  }
+</style>
 </head>
 <body>
-  <!-- Navigation -->
-  <header id="nav-placeholder"></header>
 
-  <!-- Bannière -->
-  <div id="banner-placeholder"></div>
+<p style="text-align:right; font-size:0.9rem; margin: 1rem 1rem 0 0;">
+  <a href="aging-en.html">English version</a>
+</p>
 
-  <script>
-    // Nav FR
-  fetch("nav.html")
-    .then(r => r.text())
-    .then(html => {
-      document.getElementById("nav-placeholder").innerHTML = html;
-    })
-  
-  fetch("banner.html")
-    .then(r => r.text())
-    .then(html => {
-      document.getElementById("banner-placeholder").innerHTML = html;
-      document.body.classList.add("has-banner");
-    })
-    
-    </script>
 
-  <!-- Contenu -->
-  <main class="page page--left-sidebar page--childhood">
 
-    <aside class="sidebar sidebar--bluebar" aria-label="Sous-pages Vieillesse">
-        <ul>
-          <li><a href="/fr/page/aging-ai.html">Vieillissement &amp; IA non normalisée</a></li>
-        </ul>
-    </aside>
+<article>
+        <h1>Vieillissement : une lecture développementale</h1>
 
-    <article>
-      <h1>Vieillissement : une lecture développementale</h1>
-
-      <p>
+        <p style="font-size:0.9rem; color:#555; margin-bottom:2rem;">
+        15 février 2026
+        </p>
+        <p style="
+          color:#3b73b9;
+          font-size:0.9rem;
+          opacity:0.75;
+          margin-top:-1.5rem;
+          margin-bottom:2rem;
+          font-style: italic; 
+          ">
+          Ginette Deguilhem
+        </p>
+      
+        <p>
         Le vieillissement est aujourd’hui majoritairement abordé sous l’angle du déclin : perte des capacités,
         dégénérescence, fragilisation progressive de l’organisme et de la cognition. Cette lecture, largement dominante,
         repose sur une conception implicite du vieillissement comme une phase terminale, homogène et essentiellement
@@ -54,16 +78,13 @@
       </p>
 
       <p>
-        L’allongement massif de l’espérance de vie a profondément modifié les conditions dans lesquelles le vieillissement
-        se déploie. Des millions d’individus vivent désormais plusieurs décennies au-delà des seuils biologiques et sociaux
-        pour lesquels l’espèce humaine s’était historiquement organisée. Cette situation ne constitue pas un simple
-        prolongement du passé, mais une <strong>nouvelle contrainte développementale</strong> à laquelle l’organisme, la cognition
-        et les structures sociales doivent s’adapter.
+        L’allongement massif de l’espérance de vie a profondément modifié les conditions dans lesquelles le vieillissement se déploie. Des millions d’individus vivent désormais plusieurs décennies au-delà des seuils biologiques et sociaux
+        autour desquels l’espèce humaine s’était historiquement organisée. Cette situation ne constitue pas un simple prolongement du passé, mais une nouvelle contrainte développementale à laquelle l’organisme, la cognition et les structures sociales doivent s’adapter.
       </p>
 
       <p>
-        Dans cette perspective, le vieillissement peut être envisagé non seulement comme un processus de pertes, mais aussi
-        comme un <strong>processus adaptatif sous contrainte de longévité accrue</strong>.
+        Dans cette perspective, le vieillissement peut être envisagé non seulement comme un processus de perte, mais aussi
+        comme un processus adaptatif sous contrainte de longévité accrue.
       </p>
 
       <h2>Une phase instable, encore en cours d’élaboration</h2>
@@ -77,8 +98,7 @@
       </p>
 
       <p>
-        Cette hétérogénéité n’est pas un dysfonctionnement du vieillissement. Elle est au contraire <strong>attendue</strong> dans
-        une phase développementale qui n’a pas encore trouvé ses formes stabilisées. Dans les systèmes vivants, la diversité
+        Cette hétérogénéité n’est pas un dysfonctionnement du vieillissement. Elle est au contraire attendue dans une phase développementale qui n’a pas encore trouvé ses formes stabilisées. Dans les systèmes vivants, la diversité
         des réponses constitue un mode d’exploration : plus les trajectoires sont variées, plus le système augmente ses
         chances de découvrir des équilibres viables face à une contrainte nouvelle.
       </p>
@@ -98,7 +118,7 @@
       </p>
 
       <p>
-        Ce décalage produit un malaise croissant : ce qui échappe à la norme est perçu comme anomalie, ce qui résiste à
+        Ce décalage produit un malaise croissant : ce qui échappe à la norme est perçu comme une anomalie, ce qui résiste à
         l’évaluation est rapidement pathologisé. Or, dans une phase développementale émergente, l’absence de normes stables
         n’est pas un échec ; elle est le signe que le processus est encore en cours.
       </p>
@@ -107,7 +127,7 @@
 
       <p>
         Cette approche propose donc un déplacement de regard : ne plus penser le vieillissement uniquement comme une fin,
-        mais comme une <strong>reconfiguration tardive du développement humain</strong>, contrainte par une longévité inédite,
+        mais comme une reconfiguration tardive du développement humain, contrainte par une longévité inédite,
         encore mal comprise, encore mal accompagnée, mais profondément active.
       </p>
 
@@ -116,8 +136,7 @@
         les nouvelles formes de présence ne sont pas des aberrations à corriger, mais des indices précieux d’un système vivant
         en train de chercher ses nouveaux équilibres.
       </p>
-    </article>
+</article>
 
-  </main>
 </body>
 </html>
