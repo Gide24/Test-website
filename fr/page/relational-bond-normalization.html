@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Normalisation du Lien — Enfance</title>
+  <!-- Root-absolute path works from any folder -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header id="nav-placeholder"></header>
+
+  <!-- Bannière -->
+  <div id="banner-placeholder"></div>
+
+  <script>
+    // Depuis /fr/page/, nav.html est un niveau au-dessus
+    fetch("../nav.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("nav-placeholder").innerHTML = html;
+        fixLangLink(); // ajuste le lien "English/Français" vers la contrepartie
+      });
+
+    // Bannière FR (chemin absolu = sûr partout)
+    fetch("/fr/banner.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("banner-placeholder").innerHTML = html;
+        document.body.classList.add("has-banner");
+      });
+
+    // Rend le bouton de langue contextuel (/fr/... ↔ /en/...)
+    function fixLangLink() {
+      const link = document.getElementById("lang-link");
+      if (!link) return;
+      const p = location.pathname;
+      const target =
+        p.startsWith("/fr/") ? p.replace(/^\/fr\//, "/en/") :
+        p.startsWith("/en/") ? p.replace(/^\/en\//, "/fr/") :
+        "/en/index.html";
+      link.setAttribute("href", target);
+    }
+  </script>
+
+  <!-- Mise en page : sidebar à gauche + contenu -->
+  <main class="page page--left-sidebar page--childhood">
+
+    <!-- Sidebar (même menu que la page Enfance), lien courant marqué -->
+    <aside class="sidebar sidebar--bluebar" aria-label="Sous-pages Enfance">
+      <ul>
+        <li><a href="/fr/page/cry-function.html" aria-current="page">Fonction des pleurs</a></li>
+        <li><a href="/fr/page/cuddly-toy.html">Objet transitionnel</a></li>
+        <li><a href="/fr/page/attachment.html">Attachement comme système de Survie</a></li>
+        <li><a href="/fr/page/relational-bond-normalization.html">Normalisation du lien</a></li>
+      </ul>
+    </aside>
+
+    <!-- Article : texte fourni -->
+    <article class="content">
+  <header>
+    <h1>La normalisation du lien : un glissement majeur</h1>
+  </header>
+
+  <p>
+    La normalisation du lien relationnel opère un glissement fondamental :
+    elle ne se contente plus d’observer des réponses adaptatives à un environnement donné,
+    elle prescrit implicitement une forme de relation considérée comme adéquate, et ce faisant,
+    contraint le système à emprunter une trajectoire particulière.
+  </p>
+
+  <p>
+    Ce glissement est particulièrement visible dans la manière dont les pleurs ont été interprétés
+    et intégrés aux modèles du développement.
+  </p>
+
+  <p>
+    Les pleurs ont été progressivement normalisés comme mode de communication privilégié du nourrisson.
+    À partir de leur fréquence d’observation, ils ont été interprétés comme un langage primaire, puis intégrés
+    comme une étape normale, nécessaire, presque universelle du développement. Ce qui relevait initialement
+    d’un signal d’alerte — réponse à l’inconfort, à la rupture, à la douleur — est devenu un canal de communication attendu.
+  </p>
+
+  <p>
+    Or, cette normalisation n’est pas neutre. En érigeant les pleurs en moyen de communication central,
+    elle occulte la possibilité d’autres stratégies, plus fines, plus subtiles, moins coûteuses sur le plan
+    physiologique et émotionnel.
+  </p>
+
+  <p>
+    Dans un environnement attentif, ajusté, où l’adulte est disponible pour percevoir des signaux faibles,
+    le système vivant peut explorer une diversité de modes d’expression. Le nourrisson n’est alors pas contraint
+    de recourir à un signal fort pour être entendu. Il peut déployer un langage corporel extrêmement précis :
+    tensions musculaires, ajustements posturaux, orientations fines du corps, variations de tonus.
+  </p>
+
+  <p>
+    L’expérience vécue que tu évoques l’illustre très clairement. Lorsque ton fils souhaitait aller dans une
+    direction particulière, il n’avait pas besoin de pleurer. Le contact corporel permettait une lecture directe
+    des tensions de sa colonne vertébrale. Une contraction suffisait à signaler une inadéquation, une détente à valider
+    le mouvement. Le corps devenait interface de communication, et la relation, espace de régulation conjointe.
+    Les pleurs n’intervenaient plus que dans des situations spécifiques — souffrance physique, maladie, blessure —
+    c’est-à-dire là où un signal d’alerte fort retrouvait sa fonction première.
+  </p>
+
+  <p>
+    Ce type de communication n’est ni marginal ni exceptionnel. Il devient possible lorsque le système n’est pas enfermé
+    dans une attente normative : l’enfant doit pleurer pour être compris. Lorsque cette attente s’impose, le système est contraint.
+    Il apprend rapidement que les signaux subtils ne sont pas perçus, ou pas reconnus. Il ajuste alors sa stratégie en conséquence.
+  </p>
+
+  <p>
+    La normalisation agit ainsi comme un réducteur de diversité. Elle ne laisse plus au système la possibilité d’explorer,
+    de tester, de sélectionner des stratégies alternatives. Une voie devient dominante, non parce qu’elle est intrinsèquement optimale,
+    mais parce qu’elle est la seule reconnue par l’environnement.
+  </p>
+
+  <p>
+    Ce mécanisme est fondamentalement développemental. Un système vivant privé de diversité adaptative devient plus rigide,
+    plus dépendant de conditions spécifiques, moins capable de s’ajuster à des variations ultérieures. Ce qui est présenté
+    comme une “étape normale” peut alors être compris autrement : comme le résultat d’une contrainte environnementale,
+    et non comme une nécessité du développement humain.
+  </p>
+
+  <p>
+    Ainsi, la normalisation du lien — et en particulier la normalisation des pleurs comme mode de communication —
+    ne décrit pas simplement ce qui est observé. Elle oriente le devenir du système, en limitant l’éventail des possibles.
+    Elle transforme un mécanisme de survie flexible en une réponse standardisée, au détriment de la richesse relationnelle
+    et de la plasticité développementale.
+  </p>
+</article>
+
+  </main>
+</body>
+</html>

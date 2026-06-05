@@ -120,6 +120,15 @@ nav a:hover {
   --sidebar-offset: 100px; /* change this number to move the sidebar down/up */
 }
 
+.page.page--left-sidebar.page--bibliography {
+  --sidebar-offset: 100px;
+}
+
+.page.page--bibliography article h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 /* Place the children explicitly in the grid and apply the drop */
 @media (min-width: 721px) {
   .page.page--left-sidebar > .sidebar {
